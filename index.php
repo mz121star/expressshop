@@ -8,7 +8,7 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
 } else {
     $shops = $collection->find();
 }
-exit;
+
 //{
 //  "_id" : ObjectId("53a631025e327b170c694bb5"),
 //  "name" : "尖沙嘴茶餐厅",
@@ -210,7 +210,7 @@ $(function(){
                            </dd>
        </dl>
             <?php
-            }
+            }  exit;
             ?>
     </div>
 

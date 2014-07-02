@@ -5,10 +5,10 @@ error_reporting(E_ALL|E_STRICT);
 ini_set("display_errors","on");
 
 // 数据库前缀,表名
-define("MONGODB", "kahana.mongohq.com");
-define("MONGOPORT", 10050);
-define("MONGOUSER", "shop");
-define("MONGOPW", '1qaz2wsx');
+define("MONGODB", "linus.mongohq.com");
+define("MONGOPORT", 10062);
+define("MONGOUSER", "njblog");
+define("MONGOPW", 'njblog');
 
 // 连接Mongo
 $server = "mongodb://".MONGOUSER.":".MONGOPW."@".MONGODB.":".MONGOPORT;
@@ -19,7 +19,7 @@ if($conn === false)
     exit(-1);
 }
 
-$dbname = "shop";
-$tbname = "shops";
+$dbname = "NJBlog";
+$tbname = "e_shops";
 $db = $conn->selectDB($dbname);
 $collection = $db->selectCollection($tbname);

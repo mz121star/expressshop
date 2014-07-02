@@ -2,14 +2,22 @@
 
 include_once('init.php');
 
-$shops = $collection->find();
+if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
+    $where = array('geoNear'=>'places', 'near'=>array($_GET['longitude'], $_GET['latitude']), 'num'=>1000);
+    $shops = $collection->find($where);
+} else {
+    $shops = $collection->find();
+}
+
 //{
 //  "_id" : ObjectId("53a631025e327b170c694bb5"),
 //  "name" : "尖沙嘴茶餐厅",
 //  "star" : 4,
 //  "location" : "上海",
 //  "price" : 120,
-//  "image" : "http://www.baidu.com"
+//  "image" : "http://www.baidu.com",
+//  "longitude" :100,
+//  "latitude":100
 //}
 
 ?>

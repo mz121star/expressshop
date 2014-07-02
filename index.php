@@ -1,7 +1,7 @@
 <?php
-            phpinfo();exit;
-include_once('init.php');
 
+include_once('init.php');
+exit;
 if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
     $where = array('geoNear'=>'places', 'near'=>array($_GET['longitude'], $_GET['latitude']), 'num'=>1000);
     $shops = $collection->find($where);

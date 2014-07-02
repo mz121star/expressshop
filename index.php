@@ -1,5 +1,5 @@
 <?php
-
+            phpinfo();exit;
 include_once('init.php');
 
 if (isset($_GET['longitude']) && isset($_GET['latitude'])) {

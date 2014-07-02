@@ -13,7 +13,7 @@ if (count($_POST)) {
 
     $collection->insert($add);
 }
-$shops = $collection->find();
+$shops = $collection->find();   exit;
 ?>
 
 

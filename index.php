@@ -210,7 +210,7 @@ $(function(){
                            </dd>
        </dl>
             <?php
-            }  exit;
+            }
             ?>
     </div>
 

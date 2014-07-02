@@ -9,17 +9,17 @@ define("MONGODB", "linus.mongohq.com");
 define("MONGOPORT", 10062);
 define("MONGOUSER", "njblog");
 define("MONGOPW", 'njblog');
+define("MONGODBNAME", 'NJBlog');
 
 // 连接Mongo
-$server = "mongodb://".MONGOUSER.":".MONGOPW."@".MONGODB.":".MONGOPORT;
-$conn = new MongoClient();
+$server = "mongodb://".MONGOUSER.":".MONGOPW."@".MONGODB.":".MONGOPORT.'/'.MONGODBNAME;
+$conn = new MongoClient($server);
 if($conn === false)
 {
     print "Mongo() fail\n";
     exit(-1);
 }
 
-$dbname = "NJBlog";
 $tbname = "e_shops";
-$db = $conn->selectDB($dbname);
+$db = $conn->selectDB(MONGODBNAME);
 $collection = $db->selectCollection($tbname);

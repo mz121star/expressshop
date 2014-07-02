@@ -1,3 +1,18 @@
+<?php
+
+include_once('init.php');
+
+$shops = $collection->find();
+//{
+//  "_id" : ObjectId("53a631025e327b170c694bb5"),
+//  "name" : "尖沙嘴茶餐厅",
+//  "star" : 4,
+//  "location" : "上海",
+//  "price" : 120,
+//  "image" : "http://www.baidu.com"
+//}
+
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -156,8 +171,11 @@ $(function(){
 ///列表开始
 -->
     <div class="cate_main ">
+            <?php
+            foreach ($shops as $shop) {
+            ?>
     	     	       <dl class="item cf" onclick="window.location.href='ticket.html?sid=13054&city_id=4&venue_id=190'">
-        	<h2>尖沙嘴茶餐厅</h2>
+        	<h2><?php echo $shop['name'];?></h2>
             <dt><a href="ticket.html?sid=13054&city_id=4&venue_id=190">
             	<img src="public/uploads/2.jpg">
             </a>
@@ -167,11 +185,11 @@ $(function(){
                 	</div>
                 	            </dt>
             <dd><i class="ico ico_time">星级：</i><span class="time">
-         	                              <span class="star star-45"></span>                            </span></dd>
+         	                              <span class="star star-<?php echo $shop['star'];?>"></span>                            </span></dd>
         	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time">上海音乐厅</span></dd>
+            	<span class="time"><?php echo $shop['location'];?></span></dd>
             <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost">120元</span></dd>
+            	<span class="cost"><?php echo $shop['price'];?>元</span></dd>
 
          
             <dd>	
@@ -183,365 +201,9 @@ $(function(){
                                280m
                            </dd>
        </dl>
-             <dl class="item cf" onclick="window.location.href='ticket.html?sid=12877&city_id=52&venue_id=606'">
-        	<h2>千手予健康烤肉</h2>
-            <dt><a href="ticket.html?sid=12877&city_id=52&venue_id=606">
-            	<img src="public/uploads/3.jpg">
-            </a>
-            	            	<div class="ico_zhu">
-                	<div class="ui-iconfont ico_caidai">&#61472;</div>
-                   	<span class="txt">主<br>办</span>
-                	</div>
-                	            </dt>
-            <dd><i class="ico ico_time">星级：</i><span class="time">
-         	                               <span class="star star-45"></span>                              </span></dd>
-        	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time">昆明剧院</span></dd>
-            <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost">120-380元</span></dd>
-
-         
-            <dd>	
-                        	<span class="ico_tag">团购</span>
-                	
-    		
-    		<span class="ico_tag yu">预订</span>
-    	
-           </dd>
-       </dl>
-             <dl class="item cf" onclick="window.location.href='ticket.html?sid=13251&city_id=1&venue_id=104'">
-        	<h2>[深圳]知名女演员童蕾领衔主演时尚爱情话剧《香水》</h2>
-            <dt><a href="ticket.html?sid=13251&city_id=1&venue_id=104">
-            	<img src="http://www.juooo.com/uploads/show/20140514180301131.jpg">
-            </a>
-            	            	<div class="ico_zhu">
-                	<div class="ui-iconfont ico_caidai">&#61472;</div>
-                   	<span class="txt">主<br>办</span>
-                	</div>
-                	            </dt>
-            <dd><i class="ico ico_time">星级：</i><span class="time">
-         	                             <span class="star star-45"></span>                          </span></dd>
-        	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time">深圳少年宫</span></dd>
-            <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost">280-480元</span></dd>
-
-         
-            <dd>	
-                        	<span class="ico_tag">团购</span>
-                	
-    		
-    		<span class="ico_tag yu">预订</span>
-    	
-           </dd>
-       </dl>
-             <dl class="item cf" onclick="window.location.href='ticket.html?sid=12801&city_id=1&venue_id=891'">
-        	<h2>[深圳]首届城市戏剧节——舒巷城小说改编话剧《鲤鱼门的雾》</h2>
-            <dt><a href="ticket.html?sid=12801&city_id=1&venue_id=891">
-            	<img src="http://www.juooo.com/uploads/show/20140121142052720.jpg">
-            </a>
-            	            	<div class="ico_zhu">
-                	<div class="ui-iconfont ico_caidai">&#61472;</div>
-                   	<span class="txt">主<br>办</span>
-                	</div>
-                	            </dt>
-            <dd><i class="ico ico_time">星级：</i><span class="time">
-         	        
-                   <span class="star star-45"></span>                      </span></dd>
-        	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time">龙华文化艺术中心</span></dd>
-            <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost">50-200元</span></dd>
-
-         
-            <dd>	
-                        	<span class="ico_tag">团购</span>
-                	
-    		
-    		<span class="ico_tag yu">预订</span>
-    	
-           </dd>
-       </dl>
-             <dl class="item cf" onclick="window.location.href='ticket.html?sid=13394&city_id=26&venue_id=583'">
-        	<h2>[南昌]唯美欢乐海底探险儿童剧《潜艇总动员》</h2>
-            <dt><a href="ticket.html?sid=13394&city_id=26&venue_id=583">
-            	<img src="http://www.juooo.com/uploads/show/20131227170928781.jpg">
-            </a>
-            	            	<div class="ico_zhu">
-                	<div class="ui-iconfont ico_caidai">&#61472;</div>
-                   	<span class="txt">主<br>办</span>
-                	</div>
-                	            </dt>
-            <dd><i class="ico ico_time">星级：</i><span class="time">
-         	                              <span class="star star-45"></span>                          </span></dd>
-        	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time">江西艺术中心大剧院</span></dd>
-            <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost">80-500元</span></dd>
-
-         
-            <dd>	
-                        	<span class="ico_tag">团购</span>
-                	
-    		
-    		<span class="ico_tag yu">预订</span>
-    	
-           </dd>
-       </dl>
-             <dl class="item cf" onclick="window.location.href='ticket.html?sid=12894&city_id=1&venue_id=115'">
-        	<h2>[深圳]费玉清2014深圳演唱会</h2>
-            <dt><a href="ticket.html?sid=12894&city_id=1&venue_id=115">
-            	<img src="http://www.juooo.com/uploads/show/20140219095900692.jpg">
-            </a>
-            	            	<div class="ico_zhu">
-                	<div class="ui-iconfont ico_caidai">&#61472;</div>
-                   	<span class="txt">主<br>办</span>
-                	</div>
-                	            </dt>
-            <dd><i class="ico ico_time">星级：</i><span class="time">
-         	                             <span class="star star-45"></span>                      </span></dd>
-        	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time">华润深圳湾体育中心＂春茧＂体育馆</span></dd>
-            <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost">140-1680元</span></dd>
-
-         
-            <dd>	
-                        	<span class="ico_tag">团购</span>
-                	
-    		
-    		<span class="ico_tag yu">预订</span>
-    	
-           </dd>
-       </dl>
-             <dl class="item cf" onclick="window.location.href='ticket.html?sid=13239&city_id=3&venue_id=122'">
-        	<h2>[广州]《大马戏秀·暗黑诱惑》太阳马戏原班团队2014全球</h2>
-            <dt><a href="ticket.html?sid=13239&city_id=3&venue_id=122">
-            	<img src="http://www.juooo.com/uploads/show/20140318144047521.jpg">
-            </a>
-            	            	<div class="ico_zhu">
-                	<div class="ui-iconfont ico_caidai">&#61472;</div>
-                   	<span class="txt">主<br>办</span>
-                	</div>
-                	            </dt>
-            <dd><i class="ico ico_time">星级：</i><span class="time">
-         	        
-                     <span class="star star-45"></span>                       </span></dd>
-        	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time">广州天河体育馆</span></dd>
-            <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost">280-880元</span></dd>
-
-         
-            <dd>	
-                        	<span class="ico_tag">团购</span>
-                	
-    	
-           </dd>
-       </dl>
-             <dl class="item cf" onclick="window.location.href='ticket.html?sid=13214&city_id=1&venue_id=115'">
-        	<h2>[深圳]《大马戏秀·暗黑诱惑》太阳马戏原班团队2014全球</h2>
-            <dt><a href="ticket.html?sid=13214&city_id=1&venue_id=115">
-            	<img src="http://www.juooo.com/uploads/show/2014031819472553.jpg">
-            </a>
-            	            	<div class="ico_zhu">
-                	<div class="ui-iconfont ico_caidai">&#61472;</div>
-                   	<span class="txt">主<br>办</span>
-                	</div>
-                	            </dt>
-            <dd><i class="ico ico_time">星级：</i><span class="time">
-         	        
-                 <span class="star star-45"></span>                      </span></dd>
-        	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time">华润深圳湾体育中心＂春茧＂体育馆</span></dd>
-            <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost">280-880元</span></dd>
-
-         
-            <dd>	
-                        	<span class="ico_tag">团购</span>
-                	
-    		
-    		<span class="ico_tag yu">预订</span>
-    	
-           </dd>
-       </dl>
-             <dl class="item cf" onclick="window.location.href='ticket.html?sid=13434&city_id=60&venue_id=1036'">
-        	<h2>[太原]大型励志童话人偶剧《洋葱头历险记》</h2>
-            <dt><a href="ticket.html?sid=13434&city_id=60&venue_id=1036">
-            	<img src="http://www.juooo.com/uploads/show/20130530112510871.jpg">
-            </a>
-            	            	<div class="ico_zhu">
-                	<div class="ui-iconfont ico_caidai">&#61472;</div>
-                   	<span class="txt">主<br>办</span>
-                	</div>
-                	            </dt>
-            <dd><i class="ico ico_time">星级：</i><span class="time">
-         	                             <span class="star star-45"></span>                        </span></dd>
-        	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time">太原工人文化宫</span></dd>
-            <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost">60-350元</span></dd>
-
-         
-            <dd>	
-                        	<span class="ico_tag">团购</span>
-                	
-    	
-           </dd>
-       </dl>
-             <dl class="item cf" onclick="window.location.href='ticket.html?sid=13726&city_id=1&venue_id=109'">
-        	<h2>[深圳]现场水墨动画剧——《中国故事》</h2>
-            <dt><a href="ticket.html?sid=13726&city_id=1&venue_id=109">
-            	<img src="http://www.juooo.com/uploads/show/20140508171829127.jpg">
-            </a>
-            	            	<div class="ico_zhu">
-                	<div class="ui-iconfont ico_caidai">&#61472;</div>
-                   	<span class="txt">主<br>办</span>
-                	</div>
-                	            </dt>
-            <dd><i class="ico ico_time">星级：</i><span class="time">
-         	                            <span class="star star-45"></span>                </span></dd>
-        	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time">深圳音乐厅小剧场</span></dd>
-            <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost">80-150元</span></dd>
-
-         
-            <dd>	
-                        	<span class="ico_tag">团购</span>
-                	
-    	
-           </dd>
-       </dl>
-             <dl class="item cf" onclick="window.location.href='ticket.html?sid=12741&city_id=1&venue_id=104'">
-        	<h2>[深圳]大型雪景体验式儿童剧《雪孩子》</h2>
-            <dt><a href="ticket.html?sid=12741&city_id=1&venue_id=104">
-            	<img src="http://www.juooo.com/uploads/show/20130528105449404.jpg">
-            </a>
-            	            	<div class="ico_zhu">
-                	<div class="ui-iconfont ico_caidai">&#61472;</div>
-                   	<span class="txt">主<br>办</span>
-                	</div>
-                	            </dt>
-            <dd><i class="ico ico_time">星级：</i><span class="time">
-         	                           <span class="star star-45"></span>                        </span></dd>
-        	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time">深圳少年宫</span></dd>
-            <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost">120-500元</span></dd>
-
-         
-            <dd>	
-                        	<span class="ico_tag">团购</span>
-                	
-    		
-    		<span class="ico_tag yu">预订</span>
-    	
-           </dd>
-       </dl>
-             <dl class="item cf" onclick="window.location.href='ticket.html?sid=13433&city_id=60&venue_id=1036'">
-        	<h2>[太原]格林童话人偶大剧《睡美人》</h2>
-            <dt><a href="ticket.html?sid=13433&city_id=60&venue_id=1036">
-            	<img src="http://www.juooo.com/uploads/show/20131123170224421.jpg">
-            </a>
-            	            	<div class="ico_zhu">
-                	<div class="ui-iconfont ico_caidai">&#61472;</div>
-                   	<span class="txt">主<br>办</span>
-                	</div>
-                	            </dt>
-            <dd><i class="ico ico_time">星级：</i><span class="time">
-         	                           <span class="star star-45"></span>                     </span></dd>
-        	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time">太原工人文化宫</span></dd>
-            <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost">60-350元</span></dd>
-
-         
-            <dd>	
-                        	<span class="ico_tag">团购</span>
-                	
-    	
-           </dd>
-       </dl>
-             <dl class="item cf" onclick="window.location.href='ticket.html?sid=12745&city_id=1&venue_id=891'">
-        	<h2>[深圳]魔幻音乐秀——仙乐飘飘面包屋</h2>
-            <dt><a href="ticket.html?sid=12745&city_id=1&venue_id=891">
-            	<img src="http://www.juooo.com/uploads/show/20140331181214349.jpg">
-            </a>
-            	            	<div class="ico_zhu">
-                	<div class="ui-iconfont ico_caidai">&#61472;</div>
-                   	<span class="txt">主<br>办</span>
-                	</div>
-                	            </dt>
-            <dd><i class="ico ico_time">星级：</i><span class="time">
-         	                          <span class="star star-45"></span>                      </span></dd>
-        	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time">龙华文化艺术中心</span></dd>
-            <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost">60-160元</span></dd>
-
-         
-            <dd>	
-                        	<span class="ico_tag">团购</span>
-                	
-    		
-    		<span class="ico_tag yu">预订</span>
-    	
-           </dd>
-       </dl>
-             <dl class="item cf" onclick="window.location.href='ticket.html?sid=12040&city_id=6&venue_id=174'">
-        	<h2>[成都]韩国火爆儿童音乐剧——YooHoo带你环游世界</h2>
-            <dt><a href="ticket.html?sid=12040&city_id=6&venue_id=174">
-            	<img src="http://www.juooo.com/uploads/show/2014040118292886.jpg">
-            </a>
-            	            	<div class="ico_zhu">
-                	<div class="ui-iconfont ico_caidai">&#61472;</div>
-                   	<span class="txt">主<br>办</span>
-                	</div>
-                	            </dt>
-            <dd><i class="ico ico_time">星级：</i><span class="time">
-         	                          <span class="star star-45"></span>             </span></dd>
-        	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time">成都娇子音乐厅</span></dd>
-            <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost">50-400元</span></dd>
-
-         
-            <dd>	
-                        	<span class="ico_tag">团购</span>
-                	
-    		
-    		<span class="ico_tag yu">预订</span>
-    	
-           </dd>
-       </dl>
-             <dl class="item cf" onclick="window.location.href='ticket.html?sid=12059&city_id=17&venue_id=164'">
-        	<h2>[武汉]至呆至萌早教亲子剧《Hello，宝宝豆》</h2>
-            <dt><a href="ticket.html?sid=12059&city_id=17&venue_id=164">
-            	<img src="http://www.juooo.com/uploads/show/20131226114604484.jpg">
-            </a>
-            	            	<div class="ico_zhu">
-                	<div class="ui-iconfont ico_caidai">&#61472;</div>
-                   	<span class="txt">主<br>办</span>
-                	</div>
-                	            </dt>
-            <dd><i class="ico ico_time">星级：</i><span class="time">
-         	                           <span class="star star-45"></span>                             </span></dd>
-        	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time">湖北剧院</span></dd>
-            <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost">60-200元</span></dd>
-
-         
-            <dd>	
-                        	<span class="ico_tag">团购</span>
-                	
-    	
-           </dd>
-       </dl>
-                      
-          
+            <?php
+            }
+            ?>
     </div>
 
     <div class="loadMore"  data_id="1"><!--i></i-->点击加载更多</div>

@@ -13,11 +13,8 @@ if (count($_POST)) {
 
     $collection->insert($add);
 }
-$shops = $collection->find();   exit;
+$shops = $collection->find();
 ?>
-
-
-
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -56,7 +53,7 @@ $shops = $collection->find();   exit;
         <td>图片</td>
     </tr>
     <?php
-    foreach ($shops as $shop) { ?>
+    exit;foreach ($shops as $shop) { ?>
     <tr>
         <td><?php echo $shop['name'];?></td>
         <td><?php echo $shop['star'];?></td>

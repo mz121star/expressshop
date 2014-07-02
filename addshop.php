@@ -53,7 +53,7 @@ $shops = $collection->find();
         <td>图片</td>
     </tr>
     <?php
-    exit;foreach ($shops as $shop) { ?>
+    foreach ($shops as $shop) { ?>
     <tr>
         <td><?php echo $shop['name'];?></td>
         <td><?php echo $shop['star'];?></td>
@@ -61,7 +61,7 @@ $shops = $collection->find();
         <td><?php echo $shop['price'];?></td>
         <td><?php echo $shop['image'];?></td>
     </tr>
-    <?php } }
+    <?php } }exit;
     ?>
 </table>
 

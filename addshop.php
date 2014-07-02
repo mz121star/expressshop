@@ -14,6 +14,8 @@ if (count($_POST)) {
     $collection->insert($add);
 }
 $shops = $collection->find();
+print_r($shops);
+exit;
 ?>
 <html>
 <head>
@@ -61,7 +63,7 @@ $shops = $collection->find();
         <td><?php echo $shop['price'];?></td>
         <td><?php echo $shop['image'];?></td>
     </tr>
-    <?php } }exit;
+    <?php } }
     ?>
 </table>
 

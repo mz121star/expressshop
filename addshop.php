@@ -58,9 +58,9 @@ $shops = $collection->find();
     <tr>
         <td><?php echo $shop['name'];?></td>
         <td><?php echo $shop['star'];?></td>
-        <td><?php echo $shop['location'];?></td>
+        <td><?php echo $shop['address'];?></td>
         <td><?php echo $shop['price'];?></td>
-        <td><?php echo $shop['image'];?></td>
+        <td><img src="<?php echo $shop['image'];?>" style="border:none;"></td>
     </tr>
     <?php } }
     ?>

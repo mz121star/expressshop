@@ -9,13 +9,12 @@ if (count($_POST)) {
     if ( move_uploaded_file ( $_FILES [ 'image' ][ 'tmp_name' ],  $uploadfile )) {
         $imagename = $_SERVER['SERVER_NAME'].'/public/uploads/'.$_FILES [ 'image' ][ 'name' ] ;
     }
-    $add = array('name'=>$_POST['name'], 'star'=>$_POST['star'], 'location'=>$_POST['location'], 'price'=>$_POST['price'], 'image'=>$imagename);
+    $geo = explode(',', $_POST['geo']);
+    $add = array('name'=>$_POST['name'], 'star'=>$_POST['star'], 'address'=>$_POST['address'], 'location'=>array('longitude'=>floatval($geo[0]), 'latitude'=>floatval($geo[1])), 'price'=>$_POST['price'], 'image'=>$imagename);
 
     $collection->insert($add);
 }
 $shops = $collection->find();
-print_r($shops);
-exit;
 ?>
 <html>
 <head>
@@ -35,8 +34,8 @@ exit;
 
         <tr><td>餐厅名称</td><td><input name="name" type="text"></td></tr>
         <tr><td>星级</td><td><input name="star" type="text"></td></tr>
-        <tr><td>地址</td><td><input name="location" type="text"></td></tr>
-        <tr><td>坐标</td><td><input name="geo" type="text"></td></tr>
+        <tr><td>地址</td><td><input name="address" type="text"></td></tr>
+        <tr><td>坐标</td><td><input name="geo" id="geo" type="text"></td></tr>
         <tr><td>平均价格</td><td><input name="price" type="text"></td></tr>
         <tr><td>图片</td><td><input name="image" type="file"></td></tr>
         <tr><td colspan="2"><input type="submit" value="add"></td></tr>
@@ -78,6 +77,6 @@ exit;
     map.addEventListener("click",function(e){
         var marker1 = new BMap.Marker(new BMap.Point(e.point.lng,e.point.lat));  // 创建标注
         map.addOverlay(marker1);              // 将标注添加到地图中
-     //   alert(e.point.lng + "," + e.point.lat);
+        document.getElementById("geo").value = e.point.lng + "," + e.point.lat;
     });
 </script>

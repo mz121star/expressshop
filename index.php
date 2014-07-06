@@ -3,12 +3,13 @@
 include_once('init.php');
 
 if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
-    $where = array('geoNear'=>'places', 'near'=>array($_GET['longitude'], $_GET['latitude']), 'num'=>1000);
-    $shops = $collection->find($where);
+    //指定 spherical为true,结果中的dis需要乘以6371换算为km
+    $where = array('geoNear'=>'e_shops', 'near'=>array(floatval($_GET['longitude']), floatval($_GET['latitude'])), 'num'=>2, 'spherical'=>true, 'maxDistance'=>1/6371);
+//    $collection->ensureIndex(array('location'=>'2d'));
+    $shops = $db->command($where);
 } else {
     $shops = $collection->find();
 }
-
 //{
 //  "_id" : ObjectId("53a631025e327b170c694bb5"),
 //  "name" : "尖沙嘴茶餐厅",
@@ -180,12 +181,12 @@ $(function(){
 -->
     <div class="cate_main ">
             <?php
-            foreach ($shops as $shop) {
+            foreach ($shops['results'] as $shop) {
             ?>
     	     	       <dl class="item cf" onclick="window.location.href='ticket.html?sid=13054&city_id=4&venue_id=190'">
-        	<h2><?php echo $shop['name'];?></h2>
+        	<h2><?php echo $shop['obj']['name'];?></h2>
             <dt><a href="ticket.html?sid=13054&city_id=4&venue_id=190">
-            	<img src="public/uploads/2.jpg">
+            	<img src="<?php if ($shop['obj']['image']) {echo $shop['obj']['image'];} else {echo 'public/uploads/2.jpg';}?>">
             </a>
             	            	<div class="ico_zhu">
                 	<div class="ui-iconfont ico_caidai">&#61472;</div>
@@ -193,11 +194,11 @@ $(function(){
                 	</div>
                 	            </dt>
             <dd><i class="ico ico_time">星级：</i><span class="time">
-         	                              <span class="star star-<?php echo $shop['star'];?>"></span>                            </span></dd>
+         	                              <span class="star star-<?php echo $shop['obj']['star']*10;?>"></span>                            </span></dd>
         	  <dd><i class="ico ico_cost">位置：</i>
-            	<span class="time"><?php echo $shop['location'];?></span></dd>
+            	<span class="time"><?php echo $shop['obj']['address'];?></span></dd>
             <dd><i class="ico ico_cost">人均消费：</i>
-            	<span class="cost"><?php echo $shop['price'];?>元</span></dd>
+            	<span class="cost"><?php echo $shop['obj']['price'];?>元</span></dd>
 
          
             <dd>	
@@ -206,7 +207,7 @@ $(function(){
     	
            </dd>
                            <dd class="distance">
-                               280m
+                               <?php echo round($shop['dis']*6371*1000); ?>m
                            </dd>
        </dl>
             <?php

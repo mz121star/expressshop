@@ -104,11 +104,7 @@ private function checkSignature()
 
             case "LOCATION":
                 $content = "上传位置：纬度 ".$object->Latitude.";经度 ".$object->Longitude;
-               $content = array();
-                $content[] = array("Title"=>"进入大连快餐导航",
-                  "Description"=>"将为您推荐附近的餐馆",
-                  "PicUrl"=>"http://shop.web.dlwebs.com/public/uploads/yz.jpg",
-                  "Url" =>"http://shop.web.dlwebs.com/index.php?longitude=".$object->Longitude."&latitude=".$object->Latitude."&id=".$object->FromUserName );
+
                 break;
 
             default:
@@ -198,8 +194,14 @@ private function checkSignature()
     //接收位置消息
     private function receiveLocation($object)
     {
-        $content = "你发送的是位置，纬度为：".$object->Location_X."；经度为：".$object->Location_Y."；缩放级别为：".$object->Scale."；位置为：".$object->Label;
-        $result = $this->transmitText($object, $content);
+       // $content = "你发送的是位置，纬度为：".$object->Location_X."；经度为：".$object->Location_Y."；缩放级别为：".$object->Scale."；位置为：".$object->Label;
+
+         $content = array();
+                        $content[] = array("Title"=>"进入大连快餐导航",
+                          "Description"=>"将为您推荐附近的餐馆",
+                          "PicUrl"=>"http://shop.web.dlwebs.com/public/uploads/yz.jpg",
+                          "Url" =>"http://shop.web.dlwebs.com/index.php?longitude=".$object->Location_Y."&latitude=".$object->Location_X."&id=".$object->FromUserName );
+        $result = $this->transmitNews($object, $content);
         return $result;
     }
 

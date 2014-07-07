@@ -11,6 +11,7 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
 } else {
     $shops = $collection->find();
 }
+$shops = iterator_to_array($shops);
 //{
 //  "_id" : ObjectId("53a631025e327b170c694bb5"),
 //  "name" : "尖沙嘴茶餐厅",
@@ -182,7 +183,7 @@ $(function(){
 -->
     <div class="cate_main ">
             <?php
-            foreach ($shops['results'] as $shop) {
+            foreach ($shops as $shop) {
             ?>
     	     	       <dl class="item cf" onclick="window.location.href='ticket.html?sid=13054&city_id=4&venue_id=190'">
         	<h2><?php echo $shop['obj']['name'];?></h2>

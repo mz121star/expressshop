@@ -99,20 +99,10 @@ $('.proContent  img').attr('height',"100%");
 //公共底部begin
 -->
   <div class="foot-menu">
-<div id="SOHUCS"></div>
-<script>
-  (function(){
-    var appid = 'cyreFdmoA',
-    conf = 'prod_ea9f8bec9bba47c5efff3d0b46728331';
-    var doc = document,
-    s = doc.createElement('script'),
-    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
-    s.type = 'text/javascript';
-    s.charset = 'utf-8';
-    s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
-    h.insertBefore(s,h.firstChild);
-  })()
-</script>
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1814370"></script>
+<!-- UY END -->
        	 <!-- <a href="User/login" class="myjuo"><i class="sp"></i>我的聚橙</a>
         <a href="Index/follow" class="atte"><i class="sp"></i>关注聚橙</a>  -->
   </div>

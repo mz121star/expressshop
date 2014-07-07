@@ -35,8 +35,8 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
 <meta name="keywords" content="大连快餐速递" />
 <meta name="description" content=" 大连快餐速递" />
 <title>大连快餐速递</title>
-<script type="text/javascript" name="baidu-tc-cerfication" src="../apps.bdimg.com/cloudaapi/lightapp.js#966e3f849a0d64459e97eeb81059f5da"></script> <script type="text/javascript">window.bd && bd._qdc && bd._qdc.init({app_id: '0254b5748d6049bce60ed9fa'});</script>
-<script type="text/javascript">window.bd && bd._qdc && bd._qdc.init({app_id: '7c8da0082524433bf1c2e057'});</script>
+
+
 <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-app-status-bar-style" content="white" />

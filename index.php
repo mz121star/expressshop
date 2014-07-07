@@ -120,12 +120,12 @@ $(function(){
 	 <div class="bd">
 	 	<ul>
 	 			 			<li>
-	 				<a href="ticket.html.html">
+	 				<a href="ticket.php?id=<?php echo $_GET['id']||"" ?>&longitude=<?php echo $_GET['longitude']||"" ?>&latitude=<?php echo $_GET['latitude']||"" ?>">
 	 				<img  style="vertical-align:middle;"  src="public/uploads/xjj.jpg" alt="蟹将军 " />
 	 				</a>
 	 			</li>
 	 			 			<li>
-	 				<a href="ticket.html?sid=13633&city_id=1&venue_id=100">
+	 				<a href="ticket.php?id=<?php echo $_GET['id']||"" ?>&longitude=<?php echo $_GET['longitude']||"" ?>&latitude=<?php echo $_GET['latitude']||"" ?>">
 	 				<img  style="vertical-align:middle;"  src="public/uploads/yz.jpg" alt="银座日本料理 "  />
 	 				</a>
 	 			</li>
@@ -135,7 +135,7 @@ $(function(){
 	 				</a>
 	 			</li>
 	 			 			<li>
-	 				<a href="ticket.html?sid=13214&city_id=1&venue_id=115">
+	 				<a href="ticket.php?id=<?php echo $_GET['id']||"" ?>&longitude=<?php echo $_GET['longitude']||"" ?>&latitude=<?php echo $_GET['latitude']||"" ?>">
 	 				<img  style="vertical-align:middle;" src="public/uploads/xjj.jpg" alt="蟹将军 "  />
 	 				</a>
 	 			</li>
@@ -184,9 +184,9 @@ $(function(){
             <?php
             foreach ($shop_array as $shop) {
             ?>
-    	     	       <dl class="item cf" onclick="window.location.href='ticket.html?id=<?php echo $_GET['id']||"" ?>'">
+    	     	       <dl class="item cf" onclick="window.location.href='ticket.php?id=<?php echo $_GET['id']||"" ?>&longitude=<?php echo $_GET['longitude']||"" ?>&latitude=<?php echo $_GET['latitude']||"" ?>'">
         	<h2><?php echo $shop['obj']['name'];?></h2>
-            <dt><a href="ticket.html?id=<?php echo $_GET['id'] ?>">
+            <dt><a href="ticket.php?id=<?php echo $_GET['id']||"" ?>&longitude=<?php echo $_GET['longitude']||"" ?>&latitude=<?php echo $_GET['latitude']||"" ?>">
             	<img src="<?php if ($shop['obj']['image']) {echo $shop['obj']['image'];} else {echo 'public/uploads/2.jpg';}?>">
             </a>
             	            	<div class="ico_zhu">
@@ -252,7 +252,7 @@ $(function(){
   <div class="juMenu_list">
 
         <ul>
-        	<li class="nav01"><a href="ticket.html/history"><i class="AppFonts">&#xf00e9;</i>最近浏览</a></li>
+        	<li class="nav01"><a href="ticket.php/history"><i class="AppFonts">&#xf00e9;</i>最近浏览</a></li>
                          <li class="nav02"><a href="index.php/user/login?flag=_2Findex.php_2Fmember_2Fmyorder"><i class="ui-iconfont">&#508;</i>我的订单</a>
                     
         </ul>

@@ -1,5 +1,5 @@
  <?php
- require('wechatHelper.php');
+
    
   
 define("TOKEN", "dlwebs");
@@ -101,12 +101,9 @@ private function checkSignature()
             case "unsubscribe":
                 $content = "取消关注";
                 break;
-
             case "LOCATION":
                 $content = "上传位置：纬度 ".$object->Latitude.";经度 ".$object->Longitude;
-
                 break;
-
             default:
                 $content = "receive a new event: ".$object->Event;
                 break;
@@ -151,13 +148,8 @@ private function checkSignature()
             }else if (strstr($keyword, "音乐")){
                 $content = array();
                 $content = array("Title"=>"最炫民族风", "Description"=>"歌手：凤凰传奇", "MusicUrl"=>"http://121.199.4.61/music/zxmzf.mp3", "HQMusicUrl"=>"http://121.199.4.61/music/zxmzf.mp3");
-            }else if(strstr($keyword,"打印照片")){
-				$deviceid=str_replace("打印照片","",$keyword);
-				 $wcHelper=new wechatHelper();
-				
-				$wcHelper->bindPrintDevice($deviceid,$cuser);
-			    $content = "您的微信号已经成功和当前设备绑定，请立即上传一张照片进行打印"; 
-		    }else{
+            }
+            else{
                 $content =  "<a href='http://dlwebs99.jd-app.com/good.php'>点击</a>";
             }
             
@@ -178,7 +170,7 @@ private function checkSignature()
     //接收图片消息
     private function receiveImage($object)
     {
-       $content = array("MediaId"=>$object->MediaId);
+    /*   $content = array("MediaId"=>$object->MediaId);
 		 // $content = array();
 		 $picurl= $object->PicUrl;
 		 $fromuser=$object->FromUserName;
@@ -186,9 +178,9 @@ private function checkSignature()
 	    $wcHelper->inserPic($fromuser,$picurl);
 		  $content = array();
         $content[] = array("Title"=>"图片上传成功",  "Description"=>"图片上传成功，接下来可以打印此图片", "PicUrl"=>$picurl, "Url" =>"http://print.wx.dlwebs.com/zoom.php?id=".$fromuser );
-		
+
         $result = $this->transmitNews($object, $content);
-        return $result;
+        return $result;*/
     }
 
     //接收位置消息

@@ -5,16 +5,17 @@ include_once('init.php');
 if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
     //指定 spherical为true,结果中的dis需要乘以6371换算为km
     $where = array('geoNear'=>'e_shops', 'near'=>array(floatval($_GET['longitude']), floatval($_GET['latitude'])), 'num'=>2, 'spherical'=>true, 'maxDistance'=>1/6371);
-//    $collection->ensureIndex(array('location'=>'2d'));
+    $collection->ensureIndex(array('location'=>'2d'));
     $shops = $db->command($where);
-    $shops = $shops['results'];
+    $shop_array = $shops['results'];
 } else {
     $shops = $collection->find();
+    $shop_array = array();
+    while ($data = $shops->next()) {
+        $shop_array[] = $data;
+    }
 }
-$shop_array = array();
-while ($data = $shops->next) {
-    $shop_array[] = $data;
-}
+
 //{
 //  "_id" : ObjectId("53a631025e327b170c694bb5"),
 //  "name" : "尖沙嘴茶餐厅",

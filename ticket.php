@@ -62,7 +62,7 @@ $('.proContent  img').attr('height',"100%");
             <dt> <img src="http://www.juooo.com/uploads/show/20140219095900692.jpg"></dt>
             <dd><h2>阳光雨露</h2></dd>
                         <dd><i class="ico ico_cost">人均：</i><span class="cost">59元</span></dd>
-                        <dd><i class="ico ico_cost">地点：</i><span class="">大连市沙河口区天兴罗斯福购物广场3楼</span></dd>
+                        <dd><i class="ico ico_cost">评分：</i> <span class="star star-<?php echo $shop['obj']['star']*10;?>"></span>       </dd>
             <dd id="status"><!--span class="ico_tag sell">座</span-->
                                          <span class="ico_tag">推荐</span>
             
@@ -75,20 +75,20 @@ $('.proContent  img').attr('height',"100%");
               <dl class="item proLoca cf">
             <div class="s_title">商家信息：</div>
             <ul>
-                                <li class="sbon" data-id="27987"  data-onlineseat="1"  data-showid="12894" data-projectId="1974"  data-sessionId="2699"><div class="txt"><span class="date">2014.05.24</span><span class="week">周六</span><span class="date">20:00</span></div></li>
+                                <li class="sbon" ><div class="txt"><span class="date"> 沙河口区天兴罗斯福购物广场3楼</span></div></li>
 
-                                <li><div class="txt"><span class="date">2013.12.13 20:00</span><span class="week">周五</span>星海音乐厅交响乐演奏厅</div></li>
-                <li><div class="txt"><span class="date">2013.12.13 20:00</span><span class="week">周五</span>星海音乐厅交响乐演奏厅</div></li>
+                             <!--  <li><div class="txt"><span class="date">2013.12.13 20:00</span><span class="week">周五</span>星海音乐厅交响乐演奏厅</div></li>
+                <li><div class="txt"><span class="date">2013.12.13 20:00</span><span class="week">周五</span>星海音乐厅交响乐演奏厅</div></li> -->
             </ul>
        </dl>
        <div class="proContent">
-            <div class="s_title">演出详情：</div>
+            <div class="s_title">商家详情：</div>
          　　<span style="font-size:16px;"><strong>费玉清2014深圳演唱会</strong></span><br /><br />　　时光流转，回忆不断被累积或是淡忘，但是有些声音，却始终回荡在心中，轻柔温暖、诚挚深情、温润似玉，像一阵和风吹过，淡淡的意，浓浓的情。2014年5月24日，深圳湾体育馆，他，费玉清，将让这个多变的年代有着隽永的感动。<br /><br />　　一个一个音符，唤回了如烟的往事<br />　　一句一句歌词，重塑了散落的记忆<br />　　感动,只因他歌声的浓情淡意倾诉了您的心情<br />　　相逢,只为他歌声的情真意挚温暖了您的回忆<br />　　沉醉,只想细斟慢酌他歌声中的款款深情<br />　　珍藏,只爱他温煦笑容中不变的儒雅<br />　　期待您不变的守候他永远的真挚声情<br /><br />　　<strong>华语歌坛的瑰宝 - 费玉清!</strong><br /><br />　　踏入歌坛30余年，费玉清在世界各地的演出邀约不断,凡是有华人的地方就有费玉清的歌声,他的优美唱功、儒雅台风与谦和态度让观众记忆犹新。<br />　　他被尊为中国风歌曲的开山祖师。他的歌声带有浓烈的中国风格，在华人地区有着重要的影响力。<br />　　他是“情歌之最”，他的嗓音，他的吐字，他的诠释，他的深情，他歌声的感染力放眼歌坛无人可以替代。<br /><br />　　<strong>乐坛“诗人”只爱浅吟低唱</strong><br /><br />　　素有&quot;乐坛诗人&quot;之称的费玉清，口中的浅吟低唱成全了歌迷心中的浮生旧梦。费玉清说借助着现代舞美手段，他也在演唱会中使用3D动画效果。他要求的3D可不是缤纷绚烂的花哨玩意儿，他要的却是&quot;梁下的乳燕飞来&quot;、&quot;杨柳丝丝摇曳&quot;、&quot;宫廷般的画栋雕梁&quot;、&quot;湖边雾气慢慢升起好似一帘幽梦&quot;……<br /><br />　　费玉清说自己得天独厚的幸运，从1930年代怀旧曲风到流行乐都敢尝试，歌迷们也都接受。面对当今歌坛怀旧氛围大行其道，老歌新唱在歌坛也是此起彼落，费玉清并不以为这是对他的威胁，反倒是大赞这些拔得头筹的作品，也很愿意成为其中一分子，他唱起陶喆《不了情》、彭佳慧《旧梦》、王力宏《龙的传人》，脸上泛起年轻的光彩。他称赞《传奇》被王菲唱得惊艳似新歌。这些他都不OUT，只是他牢守着底线：变归变，&quot;费式&quot;特色必须还得保留。<br /><br />　　<strong>费玉清演唱会六大看点：<br /><br />　　看点1：情怀</strong><br />　　“华人世界最被推崇的抒情歌手之最,女声首推邓丽君,男声当属费玉清”。费玉清如此被推崇,不单单是他的音质优美独特, 歌唱时情感之深切也常常听众感动得落泪。<br /><br />　　<strong>看点2：技巧</strong><br />　　费玉清的音质除了他自己以外, 跟谁都不像,就是因为费玉清独特的高音与转音,以及对气息运用的独门秘笈，在其他歌手身上找不到共同之处。<br /><br />　　<strong>看点3：隽永</strong><br />　　演唱会中,费玉清精心筛选了各式隽永歌曲。他把从二十世纪40年代到21世纪，横跨乐坛近百年的国语流行金曲做了经典的回顾。<br /><br />　　<strong>看点4：解压</strong><br />　　费玉清的演唱会上很少有萤光棒与尖叫声, 观众如痴如醉地沉浸在他优美的歌声里,只为在压力沉重、步履匆忙的现代生活里,只有他的歌声能让你得到片刻的心灵洗涤。<br /><br />　　<strong>看点5：模仿</strong><br />　　费玉清模仿其他歌手唱歌是独有的绝活,那些歌手的发音方法、独特的肢体语言与眼神都会在他身上重现。<br /><br />　　<strong>看点6： 音响</strong><br />　　费玉清的演唱会永远使用世界最顶级的音响系统及麦克风, 因为这样才能不失真的展现他声音的特质,让观众更能感受到他优美、清澈的嗓音。       </div>
        
 <div class="pbtn">
                          
-          <a href="Ticket/cart?id=27987&sid=12894&city_id=1" class="btn_yu" id="yd">立即购票</a>
-                    <a href="OnlineseatPortal/index?id=27987&sid=12894&city_id=1&projectId=1974&sessionId=2699" class="btn_zai">在线选座</a>
+          <a href="tel:1234568" class="btn_yu" id="yd">立即预定</a>
+                    <a href="#" class="btn_zai">导航到此</a>
           
           
         

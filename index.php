@@ -7,6 +7,7 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
     $where = array('geoNear'=>'e_shops', 'near'=>array(floatval($_GET['longitude']), floatval($_GET['latitude'])), 'num'=>2, 'spherical'=>true, 'maxDistance'=>1/6371);
 //    $collection->ensureIndex(array('location'=>'2d'));
     $shops = $db->command($where);
+    $shops = $shops['results'];
 } else {
     $shops = $collection->find();
 }

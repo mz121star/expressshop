@@ -30,8 +30,8 @@ body { background: url(../image/bj.png); font-family: "\5FAE\8F6F\96C5\9ED1" }
     font-family: iconfont;
     font-weight: 400;
     font-style: normal;
-    src: url(../../../t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot);
-    src: url(../../../t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.eot@#iefix) format("embedded-opentype"), url(../../../t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.woff) format("woff"), url(../../../t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.ttf) format("truetype"), url(../../../t.tbcdn.cn/apps/e/brix/fonts/uxiconfont.svg#iconfont) format("svg")
+    src: url(uxiconfont.eot);
+    src: url(uxiconfont.eot@#iefix) format("embedded-opentype"), url(uxiconfont.woff) format("woff"), url(uxiconfont.ttf) format("truetype"), url(uxiconfont.svg#iconfont) format("svg")
 }
 
 .ui-iconfont { font-family: "iconfont"; font-size: 16px; font-style: normal }
@@ -216,7 +216,7 @@ body { background: url(../image/bj.png); font-family: "\5FAE\8F6F\96C5\9ED1" }
 
 .loadMore { font-size: 12px; text-align: center; height: 33px; margin-top: 5px; line-height: 33px; border: 2px solid #dadada; background-color: #fff; color: #666; cursor: pointer; -webkit-border-radius: 3px; border-radius: 3px }
 
-.loadMore i { background: url(../../../www.juooo.com/images/onLoad.gif) no-repeat; width: 16px; height: 16px; display: inline-block; vertical-align: -4px; margin-right: 5px }
+.loadMore i { background: url(../image/onLoad.gif) no-repeat; width: 16px; height: 16px; display: inline-block; vertical-align: -4px; margin-right: 5px }
 
 .loadMore:active { background-color: #f1f1f1 }
 
@@ -636,7 +636,7 @@ body { background: url(../image/bj.png); font-family: "\5FAE\8F6F\96C5\9ED1" }
     width: 66px;
     height: 12px;
     vertical-align: middle;
-    background: url(//i1.dpfile.com/mod/app-m-dianping/0.7.1/css/img/remark.png) no-repeat;
+    background: url(../image/remark.png) no-repeat;
     background-size: 86px auto
 }
 
@@ -677,7 +677,7 @@ body { background: url(../image/bj.png); font-family: "\5FAE\8F6F\96C5\9ED1" }
     width: 92px;
     height: 16px;
     vertical-align: middle;
-    background: url(../remark.png) no-repeat;
+    background: url(../image/remark.png) no-repeat;
     background-size: 86px auto
 }
 

@@ -3,8 +3,13 @@
 include_once('init.php');
 
 if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
+    $trans_url = 'http://api.map.baidu.com/geoconv/v1/?coords='.$_GET['longitude'].','.$_GET['latitude'].'&from=3&to=5&ak=lcO3zSdb4cgCduHNBT3AoAR9';
+    $trans_content = file_get_contents($trans_url);
+    $trans = json_decode($trans_content);
+    $longitude = $trans->{'result'}[0]->{'x'};
+    $latitude = $trans->{'result'}[0]->{'y'};
     //指定 spherical为true,结果中的dis需要乘以6371换算为km
-    $where = array('geoNear'=>'e_shops', 'near'=>array(floatval($_GET['longitude']), floatval($_GET['latitude'])), 'num'=>2, 'spherical'=>true, 'maxDistance'=>1/6371);
+    $where = array('geoNear'=>'e_shops', 'near'=>array(floatval($longitude), floatval($latitude)), 'num'=>2, 'spherical'=>true, 'maxDistance'=>1/6371);
     $collection->ensureIndex(array('location'=>'2d'));
     $shops = $db->command($where);
     $shop_array = $shops['results'];

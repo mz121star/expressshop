@@ -13,12 +13,8 @@ if (count($_POST)) {
     $add = array('name'=>$_POST['name'], 'star'=>$_POST['star'], 'address'=>$_POST['address'], 'location'=>array('longitude'=>floatval($geo[0]), 'latitude'=>floatval($geo[1])), 'price'=>$_POST['price'], 'image'=>$imagename);
 
     $collection->insert($add);
+    header('Location: /addshop.php');
 }
-$shops = $collection->find();
-$shop_array = array();
-    while ($data = $shops->next()) {
-        $shop_array[] = $data;
-    }
 ?>
 <html>
 <head>
@@ -52,29 +48,6 @@ $shop_array = array();
     </table>
 
 </form>
-
- <?php
-    if (count($shops)) { ?>
-<table>
-    <tr>
-        <td>餐厅名称</td>
-        <td>星级</td>
-        <td>位置</td>
-        <td>平均价格</td>
-        <td>图片</td>
-    </tr>
-    <?php
-    foreach ($shop_array as $shop) { ?>
-    <tr>
-        <td><?php echo $shop['name'];?></td>
-        <td><?php echo $shop['star'];?></td>
-        <td><?php echo $shop['address'];?></td>
-        <td><?php echo $shop['price'];?></td>
-        <td><img src="<?php echo $shop['image'];?>" style="border:none;"></td>
-    </tr>
-    <?php } }
-    ?>
-</table>
 
 </body>
 </html>

@@ -46,8 +46,8 @@ body { background: url(../image/bj.png); font-family: "\5FAE\8F6F\96C5\9ED1" }
 
 @font-face {
     font-family: 'AppFonts';
-    src: url(http://at.alicdn.com/t/font_1397701977_7636466.eot);
-    src: url(../../../at.alicdn.com/t/font_1397701977_7636466.eot@#iefix) format('embedded-opentype'), url(../../../at.alicdn.com/t/font_1397701977_7925014.woff) format('woff'), url(../../../at.alicdn.com/t/font_1397701977_7367504.ttf) format('truetype'), url(../../../at.alicdn.com/t/font_1397701977_8228235.svg#iconfont) format('svg')
+    src: url(font_1397701977_7636466.eot);
+    src: url(font_1397701977_7636466.eot@#iefix) format('embedded-opentype'), url(font_1397701977_7925014.woff) format('woff'), url(font_1397701977_7367504.ttf) format('truetype'), url(font_1397701977_8228235.svg#iconfont) format('svg')
 }
 
 .AppFonts { font-family: "AppFonts"; font-size: 16px; font-style: normal }

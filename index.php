@@ -5,13 +5,17 @@ include_once('init.php');
 if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
     //指定 spherical为true,结果中的dis需要乘以6371换算为km
     $where = array('geoNear'=>'e_shops', 'near'=>array(floatval($_GET['longitude']), floatval($_GET['latitude'])), 'num'=>2, 'spherical'=>true, 'maxDistance'=>1/6371);
-//    $collection->ensureIndex(array('location'=>'2d'));
+    $collection->ensureIndex(array('location'=>'2d'));
     $shops = $db->command($where);
-    $shops = $shops['results'];
+    $shop_array = $shops['results'];
 } else {
     $shops = $collection->find();
+    $shop_array = array();
+    while ($data = $shops->next()) {
+        $shop_array[] = $data;
+    }
 }
-$shops = iterator_to_array($shops);
+
 //{
 //  "_id" : ObjectId("53a631025e327b170c694bb5"),
 //  "name" : "尖沙嘴茶餐厅",
@@ -183,7 +187,7 @@ $(function(){
 -->
     <div class="cate_main ">
             <?php
-            foreach ($shops as $shop) {
+            foreach ($shop_array as $shop) {
             ?>
     	     	       <dl class="item cf" onclick="window.location.href='ticket.html?sid=13054&city_id=4&venue_id=190'">
         	<h2><?php echo $shop['obj']['name'];?></h2>

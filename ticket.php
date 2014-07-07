@@ -44,7 +44,7 @@ $('.proContent  img').attr('height',"100%");
 <div class="g-hd">
     <div class="l">
          <div class="br1">
-        <a href="index.php?id=<?php echo $_GET['id']||"" ?>&longitude=<?php echo $_GET['longitude']||"" ?>&latitude=<?php echo $_GET['latitude']||"" ?>" class="btn_back">返回</a>
+        <a href="index.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>" class="btn_back">返回</a>
         </div>
     </div>
     <h1 class="g_tit">演出详情</h1>

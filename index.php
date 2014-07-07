@@ -120,12 +120,12 @@ $(function(){
 	 <div class="bd">
 	 	<ul>
 	 			 			<li>
-	 				<a href="ticket.php?id=<?php echo $_GET['id']||"" ?>&longitude=<?php echo $_GET['longitude']||"" ?>&latitude=<?php echo $_GET['latitude']||"" ?>">
+	 				<a href="ticket.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
 	 				<img  style="vertical-align:middle;"  src="public/uploads/xjj.jpg" alt="蟹将军 " />
 	 				</a>
 	 			</li>
 	 			 			<li>
-	 				<a href="ticket.php?id=<?php echo $_GET['id']||"" ?>&longitude=<?php echo $_GET['longitude']||"" ?>&latitude=<?php echo $_GET['latitude']||"" ?>">
+	 				<a href="ticket.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
 	 				<img  style="vertical-align:middle;"  src="public/uploads/yz.jpg" alt="银座日本料理 "  />
 	 				</a>
 	 			</li>
@@ -135,7 +135,7 @@ $(function(){
 	 				</a>
 	 			</li>
 	 			 			<li>
-	 				<a href="ticket.php?id=<?php echo $_GET['id']||"" ?>&longitude=<?php echo $_GET['longitude']||"" ?>&latitude=<?php echo $_GET['latitude']||"" ?>">
+	 				<a href="ticket.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
 	 				<img  style="vertical-align:middle;" src="public/uploads/xjj.jpg" alt="蟹将军 "  />
 	 				</a>
 	 			</li>
@@ -184,9 +184,9 @@ $(function(){
             <?php
             foreach ($shop_array as $shop) {
             ?>
-    	     	       <dl class="item cf" onclick="window.location.href='ticket.php?id=<?php echo $_GET['id']||"" ?>&longitude=<?php echo $_GET['longitude']||"" ?>&latitude=<?php echo $_GET['latitude']||"" ?>'">
+    	     	       <dl class="item cf" onclick="window.location.href='ticket.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>'">
         	<h2><?php echo $shop['obj']['name'];?></h2>
-            <dt><a href="ticket.php?id=<?php echo $_GET['id']||"" ?>&longitude=<?php echo $_GET['longitude']||"" ?>&latitude=<?php echo $_GET['latitude']||"" ?>">
+            <dt><a href="ticket.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
             	<img src="<?php if ($shop['obj']['image']) {echo $shop['obj']['image'];} else {echo 'public/uploads/2.jpg';}?>">
             </a>
             	            	<div class="ico_zhu">

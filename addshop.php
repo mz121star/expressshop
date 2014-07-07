@@ -15,6 +15,10 @@ if (count($_POST)) {
     $collection->insert($add);
 }
 $shops = $collection->find();
+$shop_array = array();
+    while ($data = $shops->next()) {
+        $shop_array[] = $data;
+    }
 ?>
 <html>
 <head>
@@ -54,7 +58,7 @@ $shops = $collection->find();
         <td>图片</td>
     </tr>
     <?php
-    foreach ($shops as $shop) { ?>
+    foreach ($shop_array as $shop) { ?>
     <tr>
         <td><?php echo $shop['name'];?></td>
         <td><?php echo $shop['star'];?></td>

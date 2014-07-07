@@ -1,4 +1,17 @@
-﻿<!DOCTYPE HTML>
+<?php
+
+include_once('init.php');
+
+$trans_url = 'http://api.map.baidu.com/geoconv/v1/?coords='.$_GET['longitude'].','.$_GET['latitude'].'&from=3&to=5&ak=lcO3zSdb4cgCduHNBT3AoAR9';
+$trans_content = file_get_contents($trans_url);
+$trans = json_decode($trans_content);
+$longitude = $trans->{'result'}[0]->{'x'};
+$latitude = $trans->{'result'}[0]->{'y'};
+
+$shop = $collection->findOne(array('_id' => new MongoId($_GET['shopid'])));
+
+?>
+<!DOCTYPE HTML>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -59,10 +72,10 @@ $('.proContent  img').attr('height',"100%");
 -->
     <div class="cate_main ">
                <dl class="item proShow cf">
-            <dt> <img src="http://www.juooo.com/uploads/show/20140219095900692.jpg"></dt>
-            <dd><h2>阳光雨露</h2></dd>
-                        <dd><i class="ico ico_cost">人均：</i><span class="cost">59元</span></dd>
-                        <dd><i class="ico ico_cost">评分：</i> <span class="star star-<?php echo $shop['obj']['star']*10;?>"></span>       </dd>
+            <dt> <img src="<?php if ($shop['image']) {echo $shop['image'];} else {echo 'public/uploads/2.jpg';}?>"></dt>
+            <dd><h2><?php echo $shop['name'];?></h2></dd>
+                        <dd><i class="ico ico_cost">人均：</i><span class="cost"><?php echo $shop['price'];?>元</span></dd>
+                        <dd><i class="ico ico_cost">评分：</i> <span class="star star-<?php echo $shop['star']*10;?>"></span>       </dd>
             <dd id="status"><!--span class="ico_tag sell">座</span-->
                                          <span class="ico_tag">推荐</span>
             
@@ -75,7 +88,7 @@ $('.proContent  img').attr('height',"100%");
               <dl class="item proLoca cf">
             <div class="s_title">商家信息：</div>
             <ul>
-                                <li class="sbon" ><div class="txt"><span class="date"> 沙河口区天兴罗斯福购物广场3楼</span></div></li>
+                                <li class="sbon" ><div class="txt"><span class="date"> <?php echo $shop['address'];?></span></div></li>
 
                              <!--  <li><div class="txt"><span class="date">2013.12.13 20:00</span><span class="week">周五</span>星海音乐厅交响乐演奏厅</div></li>
                 <li><div class="txt"><span class="date">2013.12.13 20:00</span><span class="week">周五</span>星海音乐厅交响乐演奏厅</div></li> -->
@@ -83,7 +96,7 @@ $('.proContent  img').attr('height',"100%");
        </dl>
        <div class="proContent">
             <div class="s_title">商家详情：</div>
-         　　<span style="font-size:16px;"><strong>阳光雨露</strong></span><br /><br />详细信息　　 </div>
+         　　<span style="font-size:16px;"><strong><?php echo $shop['name'];?></strong></span><br /><br /><?php echo $shop['description'];?></div>
        
 <div class="pbtn">
                          

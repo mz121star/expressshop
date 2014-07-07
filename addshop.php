@@ -2,18 +2,23 @@
 
 include_once('init.php');
 if (count($_POST)) {
-    
-    $uploaddir  =  $_SERVER['DOCUMENT_ROOT'].'/public/uploads/' ;
-    $uploadfile  =  $uploaddir  .  basename ( $_FILES [ 'image' ][ 'name' ]);
-    $imagename = '';
-    if ( move_uploaded_file ( $_FILES [ 'image' ][ 'tmp_name' ],  $uploadfile )) {
-        $imagename = $_SERVER['SERVER_NAME'].'/public/uploads/'.$_FILES [ 'image' ][ 'name' ] ;
-    }
-    $geo = explode(',', $_POST['geo']);
-    $add = array('name'=>$_POST['name'], 'star'=>$_POST['star'], 'address'=>$_POST['address'], 'location'=>array('longitude'=>floatval($geo[0]), 'latitude'=>floatval($geo[1])), 'price'=>$_POST['price'], 'image'=>$imagename);
+    $file_type = file_type($_FILES['image']['tmp_name']);
+    $allow_type = array('jpg', 'png');
+    if (in_array($file_type, $allow_type)) {
+        $uploaddir = $_SERVER['DOCUMENT_ROOT'].'/public/uploads/' ;
+        $uploadfile = $uploaddir . basename ($_FILES['image']['name']);
+        $imagename = '';
+        if (move_uploaded_file($_FILES ['image']['tmp_name'], $uploadfile)) {
+            $imagename = $_SERVER['SERVER_NAME'].'/public/uploads/'.$_FILES ['image']['name'] ;
+        }
+        $geo = explode(',', $_POST['geo']);
+        $add = array('name'=>$_POST['name'], 'star'=>$_POST['star'], 'address'=>$_POST['address'], 'location'=>array('longitude'=>floatval($geo[0]), 'latitude'=>floatval($geo[1])), 'price'=>$_POST['price'], 'type'=>$_POST['type'], 'description'=>$_POST['description'], 'image'=>$imagename);
 
-    $collection->insert($add);
-    header('Location: /addshop.php');
+        $collection->insert($add);
+        header('Location: /addshop.php');
+    } else {
+        echo '<script>alert("只能上传jpg与png格式的图片");location.href = "/addshop.php";</script>';
+    }
 }
 ?>
 <html>
@@ -43,6 +48,13 @@ if (count($_POST)) {
         <tr><td>地址</td><td><input name="address" type="text"></td></tr>
         <tr><td>坐标</td><td><input name="geo" id="geo" type="text"></td></tr>
         <tr><td>平均价格</td><td><input name="price" type="text"></td></tr>
+        <tr><td>餐厅类型</td><td><select name="type">
+            <option value="zhongcan">中餐</option>
+            <option value="xican">西餐</option>
+            <option value="hancan">韩餐</option>
+            <option value="riliao">日料</option>
+        </select></td></tr>
+        <tr><td>餐厅介绍</td><td><textarea name="description" rows="3" cols="30"></textarea></td></tr>
         <tr><td>图片</td><td><input name="image" type="file"></td></tr>
         <tr><td colspan="2"><input type="submit" value="add"></td></tr>
     </table>

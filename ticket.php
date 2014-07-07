@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="keywords" content="聚橙,聚橙网,票务网,演出订票,订票平台,网上订票,演出资讯,订票资讯,订票热线,在线订票, 流行音乐,古典音乐,舞台剧,儿童剧" />
-<meta name="description" content="聚橙网打造国内专业的票务和演出订票平台，为您提供演唱会、流行音乐、古典音乐、舞台剧、儿童剧等演出在线订票服务，实时更新最新票务预定、演出资讯和订票信息，订票热线400-185-8666" />
-<title>聚橙网触屏版手机wap剧院戏剧娱乐网站模板正文-懒人模板【http://www.lanrenmb.com/yulexiuxian/yule/】</title>
+<meta name="keywords" content=" " />
+<meta name="description" content=" " />
+<title>餐厅详情</title>
 <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-app-status-bar-style" content="white" />
@@ -47,7 +47,7 @@ $('.proContent  img').attr('height',"100%");
         <a href="index.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>" class="btn_back">返回</a>
         </div>
     </div>
-    <h1 class="g_tit">演出详情</h1>
+    <h1 class="g_tit">餐厅详情</h1>
     <a href="#" class="ico_love"></a>
 </div>
 
@@ -60,25 +60,25 @@ $('.proContent  img').attr('height',"100%");
     <div class="cate_main ">
                <dl class="item proShow cf">
             <dt> <img src="http://www.juooo.com/uploads/show/20140219095900692.jpg"></dt>
-            <dd><h2>[深圳]费玉清2014深圳演唱会</h2></dd>
-                        <dd><i class="ico ico_cost">价格：</i><span class="cost">280-1680元</span></dd>
-                        <dd><i class="ico ico_cost">场馆：</i><span class="">华润深圳湾体育中心＂春茧＂体育馆</span></dd>
+            <dd><h2>阳光雨露</h2></dd>
+                        <dd><i class="ico ico_cost">人均：</i><span class="cost">59元</span></dd>
+                        <dd><i class="ico ico_cost">地点：</i><span class="">大连市沙河口区天兴罗斯福购物广场3楼</span></dd>
             <dd id="status"><!--span class="ico_tag sell">座</span-->
-                                         <span class="ico_tag">售票中</span>
+                                         <span class="ico_tag">推荐</span>
             
-                                       <span class="ico_tag yu">选座</span>
+
                   
             </dd>
                           
             
                    </dl>
               <dl class="item proLoca cf">
-            <div class="s_title">请选择场次：</div>
+            <div class="s_title">商家信息：</div>
             <ul>
                                 <li class="sbon" data-id="27987"  data-onlineseat="1"  data-showid="12894" data-projectId="1974"  data-sessionId="2699"><div class="txt"><span class="date">2014.05.24</span><span class="week">周六</span><span class="date">20:00</span></div></li>
 
-                                <!--li><div class="txt"><span class="date">2013.12.13 20:00</span><span class="week">周五</span>星海音乐厅交响乐演奏厅</div></li>
-                <li><div class="txt"><span class="date">2013.12.13 20:00</span><span class="week">周五</span>星海音乐厅交响乐演奏厅</div></li-->
+                                <li><div class="txt"><span class="date">2013.12.13 20:00</span><span class="week">周五</span>星海音乐厅交响乐演奏厅</div></li>
+                <li><div class="txt"><span class="date">2013.12.13 20:00</span><span class="week">周五</span>星海音乐厅交响乐演奏厅</div></li>
             </ul>
        </dl>
        <div class="proContent">

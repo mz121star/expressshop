@@ -207,11 +207,7 @@ $(function(){
                 	
     	
            </dd>
-              <dd>
-                                   	<span class="ico_tag">加入收藏</span>
 
-
-                      </dd>
                            <dd class="distance">
                                <?php echo round($shop['dis']*6371*1000); ?>m
                            </dd>

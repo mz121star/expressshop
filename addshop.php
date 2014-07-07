@@ -25,6 +25,9 @@ $shop_array = array();
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <style type="text/css">
+
+
+
                 #allmap{width:400px;height:400px;}
     </style>
     <script type="text/javascript" name="baidu-tc-cerfication" src="http://apps.bdimg.com/cloudaapi/lightapp.js#8994ab4df9d6a5a169421089618fc5c3"></script><script type="text/javascript">window.bd && bd._qdc && bd._qdc.init({app_id: '2960154a5bbf7ef967f95eff'});</script>
@@ -33,7 +36,7 @@ $shop_array = array();
 </head>
 <body>
 <div id="r-result">
-    请输入:<br /><input type="text" id="suggestId" size="20" value="百度" style="width:150px;" />
+    请输入:<br /><input type="text" id="suggestId" size="20" value="" style="width:150px;" />
     </div>
 <div id="allmap"></div>
 <form method="post" action="addshop.php" enctype="multipart/form-data">

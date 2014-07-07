@@ -5,7 +5,6 @@
 define("TOKEN", "dlwebs");
 
 $wechatObj = new wechatCallbackapiTest();
- 
 if (!isset($_GET['echostr'])) {
     $wechatObj->responseMsg();
 }else{
@@ -27,23 +26,24 @@ class wechatCallbackapiTest
     }
 
     //检查签名
-    private function checkSignature()
-    {
+private function checkSignature()
+{
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
         $nonce = $_GET["nonce"];
-        $token = TOKEN;
-        $tmpArr = array($token, $timestamp, $nonce);
-        sort($tmpArr, SORT_STRING);
-        $tmpStr = implode($tmpArr);
-        $tmpStr = sha1($tmpStr);
 
-        if($tmpStr == $signature){
-            return true;
-        }else{
-            return false;
-        }
-    }
+	$token = TOKEN;
+	$tmpArr = array($token, $timestamp, $nonce);
+	sort($tmpArr, SORT_STRING);
+	$tmpStr = implode( $tmpArr );
+	$tmpStr = sha1( $tmpStr );
+
+	if( $tmpStr == $signature ){
+		return true;
+	}else{
+		return false;
+	}
+}
 
     //响应消息
     public function responseMsg()

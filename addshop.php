@@ -32,7 +32,9 @@ $shop_array = array();
     <title>获取商家坐标</title>
 </head>
 <body>
-请输入:<br /><input type="text" id="suggestId" size="20" value="百度" style="width:150px;" />
+<div id="r-result">
+    请输入:<br /><input type="text" id="suggestId" size="20" value="百度" style="width:150px;" /></div><div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto;">
+</div>
 <div id="allmap"></div>
 <form method="post" action="addshop.php" enctype="multipart/form-data">
     <table>

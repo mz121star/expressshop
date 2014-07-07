@@ -189,7 +189,7 @@ $(function(){
             <?php
             foreach ($shop_array as $shop) {
             ?>
-    	     	       <dl class="item cf" onclick="window.location.href='ticket.html?id=<?php echo $_GET['id'] ?>'">
+    	     	       <dl class="item cf" onclick="window.location.href='ticket.html?id=<?php echo $_GET['id']||"" ?>'">
         	<h2><?php echo $shop['obj']['name'];?></h2>
             <dt><a href="ticket.html?id=<?php echo $_GET['id'] ?>">
             	<img src="<?php if ($shop['obj']['image']) {echo $shop['obj']['image'];} else {echo 'public/uploads/2.jpg';}?>">

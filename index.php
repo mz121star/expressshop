@@ -169,12 +169,12 @@ $(function(){
 </div>
 
 <nav class="g-nav cf">
-		<ul>
+		/*<ul>
          <li class="nav01"><a href="  index.php/List.html"><div class="AppFonts"><IMG SRC="1.PNG"></div>川菜</a></li>
          <li class="nav02"><a href="  index.php/List.html"><div class="AppFonts"><IMG SRC="2.PNG"></div>西餐</a></li>
          <li class="nav03"><a href="  index.php/List.html"><div class="AppFonts"><IMG SRC="3.PNG"></div>快餐</a></li>
          <li class="nav04"><a href="  index.php/List.html"><div class="AppFonts"><IMG SRC="4.PNG"></div>家常菜</a></li>
-        </ul>
+        </ul>*/
 
   
 </nav>

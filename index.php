@@ -16,7 +16,8 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
 } else {
     $shops = $collection->find();
     $shop_array = array();
-    while ($data = $shops->next()) {
+    while ($shops->hasNext()) {
+        $data =  $shops->getNext();
         $shop_array[] = $data;
     }
 }

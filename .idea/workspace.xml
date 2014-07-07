@@ -2,16 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05334871-4de1-4928-9ec6-c7709d251a60" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addshop.php" afterPath="$PROJECT_DIR$/addshop.php" />
+    </list>
+    <list id="9da48e63-ea7a-490f-8b31-c9e16e2cbe2b" name="New changelist" comment="New changelist">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <list id="9da48e63-ea7a-490f-8b31-c9e16e2cbe2b" name="New changelist" comment="" />
     <ignored path="expressshop.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="05334871-4de1-4928-9ec6-c7709d251a60" time="1404283542352" ignored="false" />
+    <file path="/Dummy.txt" changelist="05334871-4de1-4928-9ec6-c7709d251a60" time="1404704880974" ignored="false" />
     <file path="/getgeo.html" changelist="05334871-4de1-4928-9ec6-c7709d251a60" time="1404270961840" ignored="false" />
-    <file path="/addshop.php" changelist="05334871-4de1-4928-9ec6-c7709d251a60" time="1404274040850" ignored="false" />
+    <file path="/addshop.php" changelist="05334871-4de1-4928-9ec6-c7709d251a60" time="1404704871504" ignored="false" />
     <file path="/index.php" changelist="05334871-4de1-4928-9ec6-c7709d251a60" time="1404283512021" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="05334871-4de1-4928-9ec6-c7709d251a60" time="1404704966498" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,10 +69,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addshop.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="addshop.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/addshop.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="87" selection-start="587" selection-end="587" vertical-scroll-proportion="0.0">
+            <state line="35" column="65" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.75949365">
               <folding />
             </state>
           </provider>
@@ -79,16 +81,16 @@
       <file leaf-file-name="init.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/init.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="81" selection-start="467" selection-end="467" vertical-scroll-proportion="0.0">
+            <state line="19" column="81" selection-start="467" selection-end="467" vertical-scroll-proportion="-14.44">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="5" selection-start="38" selection-end="38" vertical-scroll-proportion="0.14921466">
+            <state line="18" column="61" selection-start="585" selection-end="585" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -114,17 +116,17 @@
       <list>
         <option value="$PROJECT_DIR$/WEBINFO" />
         <option value="$PROJECT_DIR$/getgeo.html" />
-        <option value="$PROJECT_DIR$/addshop.php" />
         <option value="$PROJECT_DIR$/init.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/addshop.php" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="144" />
-    <option name="y" value="14" />
-    <option name="width" value="1272" />
-    <option name="height" value="828" />
+    <option name="x" value="1432" />
+    <option name="y" value="-8" />
+    <option name="width" value="1456" />
+    <option name="height" value="916" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -181,35 +183,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="expressshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="expressshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="expressshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="expressshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="doc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -298,23 +272,71 @@
       <created>1404283536183</created>
       <updated>1404283536183</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="New changelist">
+      <created>1404283586385</created>
+      <updated>1404283586385</updated>
+    </task>
+    <task id="LOCAL-00007" summary="New changelist">
+      <created>1404283630701</created>
+      <updated>1404283630701</updated>
+    </task>
+    <task id="LOCAL-00008" summary="12">
+      <created>1404283722335</created>
+      <updated>1404283722335</updated>
+    </task>
+    <task id="LOCAL-00009" summary="41">
+      <created>1404283815717</created>
+      <updated>1404283815717</updated>
+    </task>
+    <task id="LOCAL-00010" summary="11">
+      <created>1404283957881</created>
+      <updated>1404283957881</updated>
+    </task>
+    <task id="LOCAL-00011" summary="55">
+      <created>1404284039795</created>
+      <updated>1404284039795</updated>
+    </task>
+    <task id="LOCAL-00012" summary="3">
+      <created>1404284141563</created>
+      <updated>1404284141563</updated>
+    </task>
+    <task id="LOCAL-00013" summary="A">
+      <created>1404697413136</created>
+      <updated>1404697413136</updated>
+    </task>
+    <task id="LOCAL-00014" summary="A">
+      <created>1404703848269</created>
+      <updated>1404703848269</updated>
+    </task>
+    <task id="LOCAL-00015" summary="A">
+      <created>1404704067356</created>
+      <updated>1404704067356</updated>
+    </task>
+    <task id="LOCAL-00016" summary="A">
+      <created>1404704362277</created>
+      <updated>1404704362277</updated>
+    </task>
+    <task id="LOCAL-00017" summary="A">
+      <created>1404704882912</created>
+      <updated>1404704882912</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="144" y="14" width="1272" height="828" extended-state="0" />
+    <frame x="1432" y="-8" width="1456" height="916" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20871863" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28710464" sideWeight="0.62929744" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13620324" sideWeight="0.71070015" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37070253" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28929988" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -366,7 +388,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="New changelist" />
+    <option name="LAST_COMMIT_MESSAGE" value="A" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -383,6 +405,12 @@
     <MESSAGE value="init" />
     <MESSAGE value="div" />
     <MESSAGE value="New changelist" />
+    <MESSAGE value="12" />
+    <MESSAGE value="41" />
+    <MESSAGE value="11" />
+    <MESSAGE value="55" />
+    <MESSAGE value="3" />
+    <MESSAGE value="A" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -475,23 +503,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addshop.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="87" selection-start="587" selection-end="587" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/init.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="81" selection-start="467" selection-end="467" vertical-scroll-proportion="0.0">
+        <state line="19" column="81" selection-start="467" selection-end="467" vertical-scroll-proportion="-14.44">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="5" selection-start="38" selection-end="38" vertical-scroll-proportion="0.14921466">
+        <state line="18" column="61" selection-start="585" selection-end="585" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addshop.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="65" selection-start="1604" selection-end="1604" vertical-scroll-proportion="0.75949365">
           <folding />
         </state>
       </provider>

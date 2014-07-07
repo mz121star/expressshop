@@ -73,8 +73,9 @@ $shops = $collection->find();
     // 百度地图API功能
     var map = new BMap.Map("allmap");            // 创建Map实例
     map.centerAndZoom("大连",12);                   // 初始化地图,设置城市和地图级别。
-
+    map.enableScrollWheelZoom(true);
     map.addEventListener("click",function(e){
+         map.clearOverlays();
         var marker1 = new BMap.Marker(new BMap.Point(e.point.lng,e.point.lat));  // 创建标注
         map.addOverlay(marker1);              // 将标注添加到地图中
         document.getElementById("geo").value = e.point.lng + "," + e.point.lat;

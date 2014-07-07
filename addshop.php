@@ -14,8 +14,7 @@ if (count($_POST)) {
     $collection->insert($add);
 }
 $shops = $collection->find();
-print_r($shops);
-exit;
+
 ?>
 <html>
 <head>

@@ -186,7 +186,7 @@ $(function(){
             ?>
     	     	       <dl class="item cf" onclick="window.location.href='ticket.html?sid=13054&city_id=4&venue_id=190'">
         	<h2><?php echo $shop['obj']['name'];?></h2>
-            <dt><a href="ticket.html?sid=13054&city_id=4&venue_id=190">
+            <dt><a href="ticket.html?id=<?php echo $_GET['longitude'] ?>">
             	<img src="<?php if ($shop['obj']['image']) {echo $shop['obj']['image'];} else {echo 'public/uploads/2.jpg';}?>">
             </a>
             	            	<div class="ico_zhu">

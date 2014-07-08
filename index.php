@@ -15,7 +15,7 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
 //    $shops = $db->command($where);
 //    $shop_array = $shops['results'];
     
-    $where = array('$geoNear'=>array('near'=>array($_GET['longitude'], $_GET['latitude']), 'distanceField'=>'distFromSF', 'limit'=>50, 'spherical'=>true, 'distanceMultiplier'=>3959, 'includeLocs'=>'location', 'maxDistance'=>0.08), 'skip'=>40, 'limit'=>5);
+    $where = array('$geoNear'=>array('near'=>array($_GET['longitude'], $_GET['latitude']), 'distanceField'=>'price', 'limit'=>50, 'spherical'=>true, 'distanceMultiplier'=>3959, 'includeLocs'=>'location', 'maxDistance'=>0.08), 'skip'=>0, 'limit'=>5);
     $shops = $collection->aggregate($where);
     
 //    $where = array('location'=>array('$near'=>array('$geometry'=>array('type'=>'Point', 'coordinates'=>array(floatval($longitude), floatval($latitude))), '$maxDistance'=>1000)));

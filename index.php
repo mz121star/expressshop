@@ -10,22 +10,17 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
     $longitude = $trans->{'result'}[0]->{'x'};
     $latitude = $trans->{'result'}[0]->{'y'};
     //指定 spherical为true,结果中的dis需要乘以6371换算为km
-    $where = array('geoNear'=>'e_shops', 'near'=>array(floatval($longitude), floatval($latitude)), 'num'=>20,  'spherical'=>true, 'maxDistance'=>1/6371);
     $collection->ensureIndex(array('location'=>'2d'));
-    $shops = $db->command($where);
-    $shop_array = $shops['results'];
+//    $where = array('geoNear'=>'e_shops', 'near'=>array(floatval($longitude), floatval($latitude)), 'num'=>20,  'spherical'=>true, 'maxDistance'=>1/6371);
+//    $shops = $db->command($where);
+//    $shop_array = $shops['results'];
+    
+    $where = array('$geoNear'=>array('near'=>array($_GET['longitude'], $_GET['latitude']), 'distanceField'=>'distFromSF', 'limit'=>50, 'spherical'=>true, 'distanceMultiplier'=>3959, 'includeLocs'=>'location', 'maxDistance'=>0.08), 'skip'=>40, 'limit'=>5);
+    $shops = $collection->aggregate($where);
+    print_r($shops);
+    exit;
+    
 }
-
-//{
-//  "_id" : ObjectId("53a631025e327b170c694bb5"),
-//  "name" : "尖沙嘴茶餐厅",
-//  "star" : 4,
-//  "location" : "上海",
-//  "price" : 120,
-//  "image" : "http://www.baidu.com",
-//  "longitude" :100,
-//  "latitude":100
-//}
 
 ?>
 <!DOCTYPE HTML>

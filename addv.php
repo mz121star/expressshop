@@ -50,6 +50,7 @@
 <script>
     $(".btn_yu").on("click",function(){
         $(this).attr({"disabled":"disabled"});
+        $(this).css({"background-color":"silver"});
         $(this).val("头像生成中...");
     })
 </script>

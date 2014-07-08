@@ -15,10 +15,10 @@ $srcImage =$filepath.$imagename;
 //水印文字
 //$obj->waterStr = '生日快乐';
 //水印图片
-$srcImage= $_SERVER['DOCUMENT_ROOT']."/img/water.png";
+$waterImage= $_SERVER['DOCUMENT_ROOT']."/img/water.png";
 //文字字体大小
 
-$resultImage=img_water_mark($srcImage,$srcImage);
+$resultImage=img_water_mark($srcImage,$waterImage);
 
 echo  $resultImage;
 

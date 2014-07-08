@@ -44,7 +44,7 @@
 </head>
 <body>
 
-  <img src="<?php echo $originPic ?>"   class="originimage" />
+  <img id="img" src="<?php echo $originPic ?>"   class="originimage" />
   <input type="button" class="btn_yu" value="生成头像">
 </body>
 <script>
@@ -53,7 +53,8 @@
         $(this).css({"background-color":"silver"});
         $(this).val("头像生成中...");
         $.get("imgaewater.php", {"picurl": "<?php echo $originPic ?>" ,"id":"<?php echo $_GET["id"] ?>" } ).success(function(d){
-                  alert(d);
+                  $("#img").attr("src","/public/vface/"+d);
+                  $(this).val("头像生成成功！长按图片保存到手机中");
          });
     })
 </script>

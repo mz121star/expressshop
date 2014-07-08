@@ -20,7 +20,7 @@ $waterImage= $_SERVER['DOCUMENT_ROOT']."/img/water.png";
 
 $resultImage=img_water_mark($srcImage,$waterImage);
 
-echo  $resultImage;
+echo  $imagename;
 
 
 /**

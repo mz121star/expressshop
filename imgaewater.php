@@ -17,7 +17,7 @@ $obj = new WaterMask($filepath.$imagename);
 //水印图片
 
 //文字字体大小
-
+$obj->waterImg= $_SERVER['DOCUMENT_ROOT']."/img/water.png";
 $obj->output();
 
 echo  $filepath.$imagename;

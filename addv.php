@@ -49,8 +49,8 @@
 </body>
 <script>
     $(".btn_yu").on("click",function(){
-        $("#this").attr({"disabled":"disabled"});
-        $("#this").val("头像生成中...");
+        $(this).attr({"disabled":"disabled"});
+        $(this).val("头像生成中...");
     })
 </script>
 </html>

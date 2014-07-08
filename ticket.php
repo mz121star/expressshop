@@ -106,7 +106,7 @@ $('.proContent  img').attr('height',"100%");
        	 <!-- <a href="User/login" class="myjuo"><i class="sp"></i>我的聚橙</a>
         <a href="Index/follow" class="atte"><i class="sp"></i>关注聚橙</a>  -->
   </div>
-  <div class="tel"><a href="tel_3A4001858666"><i class="fontIcon fa-phone"></i>联系客服:400-185-8666</a></div>    
+  <div class="tel"><a href="tel_3A4001858666"><i class="fontIcon fa-phone"></i>400-185-8666</a></div>
   
 <!---
 //公共底部end

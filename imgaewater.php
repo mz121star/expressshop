@@ -40,7 +40,7 @@ echo  $imagename;
  *          失败 -- -1:原文件不存在, -2:水印图片不存在, -3:原文件图像对象建立失败
  *          -4:水印文件图像对象建立失败 -5:加水印后的新图片保存失败
  */
-function img_water_mark($srcImg, $waterImg, $savepath=null, $savename=null, $positon=5, $alpha=30)
+function img_water_mark($srcImg, $waterImg, $savepath=null, $savename=null, $positon=5, $alpha=100)
 {
     $temp = pathinfo($srcImg);
     $name = $temp['basename'];

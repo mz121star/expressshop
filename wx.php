@@ -3,7 +3,7 @@
    
   
 define("TOKEN", "dlwebs");
-define("BASEURL","http://print.wx.dlwebs.com");
+define("BASEURL","http://shop.web.dlwebs.com");
 $wechatObj = new wechatCallbackapiTest();
 if (!isset($_GET['echostr'])) {
     $wechatObj->responseMsg();

@@ -11,12 +11,12 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
     $latitude = $trans->{'result'}[0]->{'y'};
     //指定 spherical为true,结果中的dis需要乘以6371换算为km
     $collection->ensureIndex(array('location'=>'2d'));
-//    $where = array('geoNear'=>'e_shops', 'near'=>array(floatval($longitude), floatval($latitude)), 'num'=>20,  'spherical'=>true, 'maxDistance'=>1/6371);
-//    $shops = $db->command($where);
-//    $shop_array = $shops['results'];
+    $where = array('geoNear'=>'e_shops', 'near'=>array(floatval($longitude), floatval($latitude)), 'num'=>20,  'spherical'=>true, 'maxDistance'=>1/6371);
+    $shops = $db->command($where);
+    $shop_array = $shops['results'];
     
-    $where = array(array('$geoNear'=>array('near'=>array($_GET['longitude'], $_GET['latitude']), 'distanceField'=>'price', 'limit'=>50, 'spherical'=>true, 'distanceMultiplier'=>3959, 'includeLocs'=>'location', 'maxDistance'=>0.08), 'skip'=>0, 'limit'=>5));
-    $shops = $collection->aggregate($where);
+//    $where = array('$geoNear'=>array('near'=>array($_GET['longitude'], $_GET['latitude']), 'distanceField'=>'price', 'limit'=>50, 'spherical'=>true, 'distanceMultiplier'=>3959, 'includeLocs'=>'location', 'maxDistance'=>0.08), 'skip'=>0, 'limit'=>5);
+//    $shops = $collection->aggregate($where);
     
 //    $where = array('location'=>array('$near'=>array('$geometry'=>array('type'=>'Point', 'coordinates'=>array(floatval($longitude), floatval($latitude))), '$maxDistance'=>1000)));
 //    $shops = $collection->find($where);

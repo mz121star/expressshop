@@ -20,7 +20,7 @@ $obj = new WaterMask($filepath.$imagename);
 
 $obj->output();
 
-
+echo  $filepath.$imagename;
 
 /**
 

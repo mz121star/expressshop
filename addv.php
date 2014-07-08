@@ -52,6 +52,9 @@
         $(this).attr({"disabled":"disabled"});
         $(this).css({"background-color":"silver"});
         $(this).val("头像生成中...");
+        $.get("imagewater.php", {picurl: <?php echo $originPic ?> ,"id":<?php echo $_GET["id"] ?>} }).success(function(d){
+                  alert(d);
+         })
     })
 </script>
 </html>

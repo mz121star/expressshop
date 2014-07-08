@@ -3,7 +3,7 @@
    
   
 define("TOKEN", "dlwebs");
-
+define("BASEURL","http://print.wx.dlwebs.com");
 $wechatObj = new wechatCallbackapiTest();
 if (!isset($_GET['echostr'])) {
     $wechatObj->responseMsg();
@@ -141,7 +141,6 @@ private function checkSignature()
                 $content[] = array("Title"=>"多图文1标题", "Description"=>"", "PicUrl"=>"http://discuz.comli.com/weixin/weather/icon/cartoon.jpg", "Url" =>"http://m.cnblogs.com/?u=txw1958");
                 $content[] = array("Title"=>"多图文2标题", "Description"=>"", "PicUrl"=>"http://d.hiphotos.bdimg.com/wisegame/pic/item/f3529822720e0cf3ac9f1ada0846f21fbe09aaa3.jpg", "Url" =>"http://m.cnblogs.com/?u=txw1958");
                 $content[] = array("Title"=>"多图文3标题", "Description"=>"", "PicUrl"=>"http://g.hiphotos.bdimg.com/wisegame/pic/item/18cb0a46f21fbe090d338acc6a600c338644adfd.jpg", "Url" =>"http://m.cnblogs.com/?u=txw1958");
-                break;
             //}else if(strstr($keyword,"打印")){
               //  $content = array();
               //  $content[] = array("Title"=>"多图文1标题", "Description"=>"", "PicUrl"=>"http://discuz.comli.com/weixin/weather/icon/cartoon.jpg", "Url" =>"http://m.cnblogs.com/?u=txw1958");
@@ -170,17 +169,17 @@ private function checkSignature()
     //接收图片消息
     private function receiveImage($object)
     {
-    /*   $content = array("MediaId"=>$object->MediaId);
+      //$content = array("MediaId"=>$object->MediaId);
 		 // $content = array();
 		 $picurl= $object->PicUrl;
 		 $fromuser=$object->FromUserName;
-		 $wcHelper=new wechatHelper();
-	    $wcHelper->inserPic($fromuser,$picurl);
+		// $wcHelper=new wechatHelper();
+	   //$wcHelper->inserPic($fromuser,$picurl);
 		  $content = array();
-        $content[] = array("Title"=>"图片上传成功",  "Description"=>"图片上传成功，接下来可以打印此图片", "PicUrl"=>$picurl, "Url" =>"http://print.wx.dlwebs.com/zoom.php?id=".$fromuser );
+        $content[] = array("Title"=>"图片上传成功",  "Description"=>"点击进入获取加V后的头像", "PicUrl"=>$picurl, "Url" =>BASEURL."/addv.php?id=".$fromuser."&picurl=".$picurl);
 
         $result = $this->transmitNews($object, $content);
-        return $result;*/
+        return $result;
     }
 
     //接收位置消息
@@ -191,8 +190,8 @@ private function checkSignature()
          $content = array();
                         $content[] = array("Title"=>"点击进入大连快餐导航",
                           "Description"=>"将为您推荐".$object->Label."附近的餐馆",
-                          "PicUrl"=>"http://shop.web.dlwebs.com/public/uploads/yz.jpg",
-                          "Url" =>"http://shop.web.dlwebs.com/index.php?longitude=".$object->Location_Y."&latitude=".$object->Location_X."&id=".$object->FromUserName );
+                          "PicUrl"=>BASEURL."/public/uploads/yz.jpg",
+                          "Url" =>BASEURL."/index.php?longitude=".$object->Location_Y."&latitude=".$object->Location_X."&id=".$object->FromUserName );
         $result = $this->transmitNews($object, $content);
         return $result;
     }

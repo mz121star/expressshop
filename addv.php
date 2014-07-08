@@ -24,11 +24,27 @@
 <link rel="stylesheet" type="text/css" href="public/css/style-min.css?v1.2.32">
 <link rel="stylesheet" type="text/css" href="public/css/alert.css?v1.6">
 <script src="public/js/jquery-1.7.1.min.js"></script>
-
+<style>
+    .btn_yu{
+        width: 300px;
+        clear: both;
+        line-height: 50px;
+        display: block;
+        height: 50px;
+        background-color: green;
+        color: white;
+        font-size: 2rem;
+        border: 1px;
+    }
+    .originimage{
+        width: 100%;
+        max-width: 300px;
+    }
+</style>
 </head>
 <body>
- 原始图像:
-  <img src="<?php echo $originPic ?>"  width="300px"/>
+
+  <img src="<?php echo $originPic ?>"   class="originimage" />
   <input type="button" class="btn_yu" value="生成头像">
 </body>
 </html>

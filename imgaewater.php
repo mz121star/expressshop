@@ -4,7 +4,7 @@ $picurl=$_GET["picurl"];
 $uid=$_GET["id"];
 
 
-$filepath = $_SERVER['DOCUMENT_ROOT']."public/vface/";
+$filepath = $_SERVER['DOCUMENT_ROOT']."/public/vface/";
 $imagename=imageHelper::getImage($picurl,'',$filepath , array('jpg', 'gif'));
 //实例化对象
 $obj = new WaterMask($filepath.$imagename);

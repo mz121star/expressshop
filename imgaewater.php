@@ -1,4 +1,28 @@
 <?php
+require("imageHelper.php");
+$picurl=$_GET["picurl"];
+$uid=$_GET["id"];
+
+
+$filepath = $_SERVER['DOCUMENT_ROOT']."/public/vface/";
+$imagename=imageHelper::getImage($picurl,'',$filepath , array('jpg', 'gif'));
+//实例化对象
+$srcImage =$filepath.$imagename;
+//类型：0为文字水印、1为图片水印
+
+//水印透明度，值 越小透明度越高
+
+//水印文字
+//$obj->waterStr = '生日快乐';
+//水印图片
+$waterImage= $_SERVER['DOCUMENT_ROOT']."/img/water.png";
+//文字字体大小
+
+$resultImage=img_water_mark($srcImage,$waterImage);
+
+echo  $imagename;
+
+
 /**
  * 图片加水印（适用于png/jpg/gif格式）
  *
@@ -16,7 +40,7 @@
  *          失败 -- -1:原文件不存在, -2:水印图片不存在, -3:原文件图像对象建立失败
  *          -4:水印文件图像对象建立失败 -5:加水印后的新图片保存失败
  */
-function img_water_mark($srcImg, $waterImg, $savepath=null, $savename=null, $positon=5, $alpha=30)
+function img_water_mark($srcImg, $waterImg, $savepath=null, $savename=null, $positon=5, $alpha=100)
 {
     $temp = pathinfo($srcImg);
     $name = $temp['basename'];

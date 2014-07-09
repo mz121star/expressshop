@@ -26,7 +26,7 @@
 <script src="public/js/jquery-1.7.1.min.js"></script>
 <style>
     .btn_yu{
-        width: 300px;
+        width:100%;
         clear: both;
         line-height: 50px;
         display: block;
@@ -38,13 +38,24 @@
     }
     .originimage{
         width: 100%;
-        max-width: 300px;
+
     }
 </style>
 </head>
 <body>
 
-  <img src="<?php echo $originPic ?>"   class="originimage" />
+  <img id="img" src="<?php echo $originPic ?>"   class="originimage" />
   <input type="button" class="btn_yu" value="生成头像">
 </body>
+<script>
+    $(".btn_yu").on("click",function(){
+        $(this).attr({"disabled":"disabled"});
+        $(this).css({"background-color":"silver"});
+        $(this).val("头像生成中...");
+        $.get("imgaewater.php", {"picurl": "<?php echo $originPic ?>" ,"id":"<?php echo $_GET["id"] ?>" } ).success(function(d){
+                  $("#img").attr("src","/public/vface/"+d);
+                  $(".btn_yu").val("头像生成成功！长按图片保存到手机中");
+         });
+    })
+</script>
 </html>

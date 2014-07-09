@@ -115,6 +115,14 @@ private function checkSignature()
                             "Url" =>"");
                         $result = $this->transmitNews($object, $content);
                         break;
+                    case "add_head_v":
+                        $content = array();
+                        $content[] = array("Title"=>"头像加V功能",
+                            "Description"=>"向公众账号发送一张您想加V的照片即可为照片加V",
+                            "PicUrl"=>BASEURL."/img/water.jpg",
+                            "Url" =>"");
+                        $result = $this->transmitNews($object, $content);
+                        break;
                     default:
                         $content = "点击菜单：".$object->EventKey;
                         break;

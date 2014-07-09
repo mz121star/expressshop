@@ -120,7 +120,7 @@ $('.proContent  img').attr('height',"100%");
 <div class="pbtn">
                          
           <a href="tel:1234568" class="btn_yu" id="yd">立即预定</a>
-                    <a href="#" class="btn_zai">导航到此</a>
+                    <a href="http://map.baidu.com/mobile/webapp/place/linesearch/foo=bar/from=place&end=word%3D<?php echo $shop['name'] ?>" class="btn_zai">导航到此</a>
           
           
         

@@ -183,7 +183,7 @@ $(function(){
     	     	       <dl class="item cf" onclick="window.location.href='ticket.php?shopid=<?php echo $shop['obj']['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>'">
         	<h2><?php echo $shop['obj']['name'];?></h2>
             <dt><a href="ticket.php?shopid=<?php echo $shop['obj']['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
-            	<img src="<?php if ($shop['obj']['image']) {echo "http://".$shop['obj']['image'];} else {echo 'public/uploads/2.jpg';}?>">
+            	<img src="<?php if ($shop['obj']['image']) {echo  $shop['obj']['image'];} else {echo 'public/uploads/2.jpg';}?>">
             </a>
             	            	<div class="ico_zhu">
                 	<div class="ui-iconfont ico_caidai">&#61472;</div>

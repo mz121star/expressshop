@@ -10,6 +10,14 @@ $latitude = $trans->{'result'}[0]->{'y'};
 
 $shop = $collection->findOne(array('_id' => new MongoId($_GET['shopid'])));
 
+$collection = $db->selectCollection('e_favorite');
+
+$fav = $collection->findOne(
+    array(
+            'id'=>$_GET['id'],
+            'shopid'=>new MongoId($_GET['shopid'])
+         ));
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -23,13 +31,14 @@ $shop = $collection->findOne(array('_id' => new MongoId($_GET['shopid'])));
 <meta name="apple-mobile-app-status-bar-style" content="white" />
 <meta name="format-detection" content="telephone=no" />
 <meta name="copyright" content="Copyright (c) 2007-2014 juooo" />
+ <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="public/css/style-min.css?v1.2.32">
 <link rel="stylesheet" type="text/css" href="public/css/alert.css?v1.6">
 <script src="public/js/jquery-1.7.1.min.js"></script> 
 <script src="public/js/TouchSlide.1.1.js"></script>
 <script src="public/js/jquery.lazyload.mini.js"></script> 
 <script src="public/js/base.js?v1.2"></script>
-<script src="public/js/juooostatistics.js"></script>  
+
 <script>
 $(window).load(function(){
 	if($("#loadingBj") && $(".ajaxLoad")){
@@ -61,7 +70,17 @@ $('.proContent  img').attr('height',"100%");
         </div>
     </div>
     <h1 class="g_tit">餐厅详情</h1>
-    <a href="#" class="ico_love"></a>
+    <div class="r">
+        <div class="brr">
+             <?php if(!$fav){?>
+            <a id="addstar" href="javascript:;"  ><i   class="fa fa-star-o"></i> </a>
+               <a id="removestar" style="display: none" href="javascript:;"  ><i   class="fa fa-star"></i> </a>
+            <?php }else{ ?>
+                 <a id="addstar" href="javascript:;"  style="display: none"  ><i   class="fa fa-star-o"></i> </a>
+                 <a id="removestar" href="javascript:;"  ><i   class="fa fa-star"></i> </a>
+            <?php } ?>
+        </div>
+    </div>
 </div>
 
 
@@ -100,8 +119,8 @@ $('.proContent  img').attr('height',"100%");
        
 <div class="pbtn">
                          
-          <a href="tel:1234568" class="btn_yu" id="yd">立即预定</a>
-                    <a href="#" class="btn_zai">导航到此</a>
+          <a href="tel:<?php echo $shop['phone'];?>" class="btn_yu" id="yd">立即预定</a>
+                    <a href="http://map.baidu.com/mobile/webapp/place/linesearch/foo=bar/from=place&end=word%3D<?php echo $shop['name'] ?>" class="btn_zai">导航到此</a>
           
           
         
@@ -119,7 +138,7 @@ $('.proContent  img').attr('height',"100%");
        	 <!-- <a href="User/login" class="myjuo"><i class="sp"></i>我的聚橙</a>
         <a href="Index/follow" class="atte"><i class="sp"></i>关注聚橙</a>  -->
   </div>
-  <div class="tel"><a href="tel_3A4001858666"><i class="fontIcon fa-phone"></i>400-185-8666</a></div>
+  <div class="tel"><a href="javascript:;"><i class="fontIcon fa-phone"></i>400-185-8666</a></div>
   
 <!---
 //公共底部end
@@ -127,100 +146,19 @@ $('.proContent  img').attr('height',"100%");
 
 </div>
 <script>
-/**
- * 选择场次
- * ?type {[type]}
- */
-var sid = 12894;
-var city_id = 1;
-var ROOT = "";
-$(function(){
-  $(".item  ul  li").click(function(){
-      if(!$(this).hasClass('sbon')){
-          var id=$(this).attr('data-id');
-          var onlineseat=$(this).attr("data-onlineseat");
-          var sessionid=$(this).attr("data-sessionid");
-          var projectid=$(this).attr("data-projectid");
-          var showid=$(this).attr('data-showid');
-          $(this).addClass('sbon').siblings("li").removeClass('sbon');
-          var url = ROOT+"/index.php/Ticket/cart?id="+id+"&sid="+sid+"&city_id="+city_id;
-          var onlineseat_url= ROOT+"/index.php/OnlineseatPortal/index?id="+id+'&sid='+showid+'&city_id='+city_id+"&projectId="+projectid+"&sessionId="+sessionid+"";
-          //var onlineseat_url="javascript:void(0)";
-          $("#yd").attr('href',url);
-            if(onlineseat==1){
-              $("#xz").attr("href",onlineseat_url);
-            }
-          $.ajax({
-              type:'post',
-              url:ROOT+"/index.php/Ticket/sellstatus",
-              data:"id="+id,
-              dataType:'json',
-              success:function(msg){
-                  var html;
-                  var cxhtml;
-                  var ehtml
-                  
-                  if(msg['sell_status'] == 1){
-                      html='<span class="ico_tag">售票中</span>';
-                  } else if(msg['sell_status'] == 2){
-                      html='<span class="ico_tag">预售</span>';
-                  } else {
-                      html='<span class="ico_tag yu">预定</span>';
-                  }
-                  if(msg.cx==1){
-                      cxhtml='<div class="wx_nut"><span class="ico_tag yu">促销信息</span>限时优惠<b class="c1">'+msg.per_discount+'</b>折!</div>';
-                  }
-                  if(msg.e_ticket==1){
-                      ehtml='<span class="ico_tag sell">电</span>';
-                  } else {
-                      ehtml="";
-                  }
-                  //alert(onlineseat)
-                      if(onlineseat==1){
-                              zhtml='<span class="ico_tag yu">选座</span>';
-                              $(".btn_zai").css("display","");
-                          } else {
-                              zhtml="";
-                              $(".btn_zai").css("display","none");
-                        }
-                  if(msg.class_type==1){
-                      //alert(1)
-                        $("#yd").css("display","none");
-                        $("#no").css("display","");
-                        $(".btn_zai").css("display","none");
-                  } else {
-                        //alert(2)
-                        $("#yd").css("display","");
-                        $("#no").css("display","none");
-                          //$(".btn_yu").css("display","none");
-                      
-                  }
+    $("#addstar").on("click",function(){
+        $.get("favorite.php",{"shopid":'<?php echo $_GET["shopid"] ?>',"id":'<?php echo $_GET["id"] ?>',"flag":"add"}).success(function(d){
+                $("#addstar").hide();
+                $("#removestar").show();
+        })
+    })
+    $("#removestar").on("click",function(){
+        $.get("favorite.php",{"shopid":'<?php echo $_GET["shopid"] ?>',"id":'<?php echo $_GET["id"] ?>',"flag":"remove"}).success(function(d){
+            $("#addstar").show();
+            $("#removestar").hide();
+        })
+    })
 
-
-
-                  
-
-                  $("#status").html("").html(html+ehtml+zhtml);
-                  $('#cx').html("").html(cxhtml);
-
-                  //alert(html);
-                  //<div class="wx_nut"><span class="ico_tag yu">促销信息</span>限时优惠<b class="c1">0</b>折!</div>
-                  
-              }
-          })
-
-
-      }
-  })
-
-  $('.check').click(function(){
-      if($(this).attr('href')=="javascript:void(0)"){
-        //alert("请选择场次");
-         notice_box("请选择场次",1);
-      }
-  })
-
-})
 </script>
 
 

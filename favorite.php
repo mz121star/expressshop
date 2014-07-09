@@ -1,12 +1,15 @@
 <?php
 
 include_once('init.php');
-
+$flag=$_GET["flag"];
 $collection = $db->selectCollection('e_favorite');
 $add = array('shopid' => new MongoId($_GET['shopid']), 'id' => $_GET['id']);
-$collection->insert($add);
-
+if($flag=="add"){
+    $collection->insert($add);
+}
+if($flag=="remove"){
+    $collection->remove($add);
+}
+echo "1"
 ?>
-收藏成功
-<br><br>
-<a href="/index.php?id=<?php echo $_GET['id']?>&longitude=<?php echo $_GET['longitude']?>&latitude=<?php echo $_GET['latitude']?>">返回首页</a>
+

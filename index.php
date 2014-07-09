@@ -2,6 +2,8 @@
 
 include_once('init.php');
 
+
+
 $shop_array = array();
 if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
     $trans_url = 'http://api.map.baidu.com/geoconv/v1/?coords='.$_GET['longitude'].','.$_GET['latitude'].'&from=3&to=5&ak=lcO3zSdb4cgCduHNBT3AoAR9';
@@ -14,6 +16,9 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
     $where = array('geoNear'=>'e_shops', 'near'=>array(floatval($longitude), floatval($latitude)), 'num'=>20,  'spherical'=>true, 'maxDistance'=>1/6371);
     $shops = $db->command($where);
     $shop_array = $shops['results'];
+
+
+
     
 //    $where = array('$geoNear'=>array('near'=>array($_GET['longitude'], $_GET['latitude']), 'distanceField'=>'price', 'limit'=>50, 'spherical'=>true, 'distanceMultiplier'=>3959, 'includeLocs'=>'location', 'maxDistance'=>0.08), 'skip'=>0, 'limit'=>5);
 //    $shops = $collection->aggregate($where);
@@ -22,7 +27,11 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
 //    $shops = $collection->find($where);
     
 }
-
+$top_shops = $collection->find(array('top'=>"1"));
+$top_shop_array = array();
+while ($top_shops->hasNext()) {
+    $top_shop_array[] = $top_shops->getNext();
+}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -44,7 +53,7 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
 <script src="public/js/TouchSlide.1.1.js"></script>
 <script src="public/js/jquery.lazyload.mini.js"></script> 
 <script src="public/js/base.js?v1.2"></script>
-<script src="public/js/juooostatistics.js"></script>  
+
 <script>
 $(window).load(function(){
 	if($("#loadingBj") && $(".ajaxLoad")){
@@ -97,54 +106,23 @@ if($(".juMenu").hasClass('juMenuPay'))
   
 </div-->
 <script>
-$(function(){
-	$(".search_btn").click(function(){
-		var word = $('input[name="word"]').val();
-		if(word=="请输入演出、艺人、场馆名称" || word==""){
-			alert("请输入演出、艺人、场馆名称");
-			return false;
-		}
 
-		window.location.href=""+"/index.php/search/search?word="+escape(word);
-
-	
-	})
-})
 </script>
 <div class="g-mn">
 	<div id="slideBox" class="m-slide">
 	 <div class="bd">
 	 	<ul>
+            <?php
+            foreach ($top_shop_array as $shop) {
+            ?>
 	 			 			<li>
-	 				<a href="ticket.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
-	 				<img  style="vertical-align:middle;"  src="public/uploads/xjj.jpg" alt="蟹将军 " />
+	 				<a href="ticket.php?shopid=<?php echo $shop['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
+	 				<img  style="vertical-align:middle;"  src="<?php if ($shop['image']) {echo  $shop['image'];} else {echo 'public/uploads/2.jpg';}?>" alt="蟹将军 " />
 	 				</a>
 	 			</li>
-	 			 			<li>
-	 				<a href="ticket.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
-	 				<img  style="vertical-align:middle;"  src="public/uploads/yz.jpg" alt="银座日本料理 "  />
-	 				</a>
-	 			</li>
-	 			 			<li>
-	 				<a href="javascript:void(0)">
-	 				<img  style="vertical-align:middle;"   src="public/uploads/xjj.jpg" alt="蟹将军 " />
-	 				</a>
-	 			</li>
-	 			 			<li>
-	 				<a href="ticket.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
-	 				<img  style="vertical-align:middle;" src="public/uploads/xjj.jpg" alt="蟹将军 "  />
-	 				</a>
-	 			</li>
-	 			 			<li>
-	 				<a href="javascript:void(0)">
-	 				<img  style="vertical-align:middle;"   src="public/uploads/xjj.jpg" alt="蟹将军 "  />
-	 				</a>
-	 			</li>
-	 			 			<li>
-	 				<a href="javascript:void(0)">
-	 				<img  style="vertical-align:middle;"   src="public/uploads/xjj.jpg" alt="蟹将军 " />
-	 				</a>
-	 			</li>
+            <?php
+            }
+            ?>
 	 			 	
 	 	</ul>
 	 </div>
@@ -183,7 +161,7 @@ $(function(){
     	     	       <dl class="item cf" onclick="window.location.href='ticket.php?shopid=<?php echo $shop['obj']['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>'">
         	<h2><?php echo $shop['obj']['name'];?></h2>
             <dt><a href="ticket.php?shopid=<?php echo $shop['obj']['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
-            	<img src="<?php if ($shop['obj']['image']) {echo $shop['obj']['image'];} else {echo 'public/uploads/2.jpg';}?>">
+            	<img src="<?php if ($shop['obj']['image']) {echo  $shop['obj']['image'];} else {echo 'public/uploads/2.jpg';}?>">
             </a>
             	            	<div class="ico_zhu">
                 	<div class="ui-iconfont ico_caidai">&#61472;</div>
@@ -213,7 +191,7 @@ $(function(){
             ?>
     </div>
 
-    <div class="loadMore"  data_id="1"><!--i></i-->点击加载更多</div>
+    <div class="loadMore1"  data_id="1"><!--i></i-->没有更多了..</div>
 <!--div  id="city" style="display:none"-->
 <!--div data-role="popup" id="popupDialog-screen" style="display:none;">
 <div class="pop-list"  >
@@ -233,10 +211,10 @@ $(function(){
 </div-->
 <!--/div-->
   <div class="foot-menu">
-       	  <a href="index.php/User/login" class="myjuo"><i class="sp"></i>我的收藏</a>
-        <a href="index.php/Index/follow" class="atte"><i class="sp"></i>关注我们</a>
+       	  <a href="mystar.php?shopid=<?php echo $shop['obj']['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>" class="myjuo"><i class="sp"></i>我的收藏</a>
+        <a href="javascript:;" class="atte"><i class="sp"></i>关注我们</a>
   </div>
-  <div class="tel"><a href="tel_3A4001858666"><i class="fontIcon fa-phone"></i>联系客服:400-185-8666</a></div>  
+  <div class="tel"><a href="tel:3A4001858666"><i class="fontIcon fa-phone"></i>联系客服:400-185-8666</a></div>
     
 <div class="juMenu">
   <div class="t">
@@ -248,13 +226,13 @@ $(function(){
   </div-->
   <div class="juMenu_list">
 
-        <ul>
+       <!-- <ul>
         	<li class="nav01"><a href="ticket.php/history"><i class="AppFonts">&#xf00e9;</i>最近浏览</a></li>
                          <li class="nav02"><a href="index.php/user/login?flag=_2Findex.php_2Fmember_2Fmyorder"><i class="ui-iconfont">&#508;</i>我的订单</a>
                     
-        </ul>
+        </ul>-->
         <ul>
-        	<li class="nav03"><a href="index.php/index/index"><i class="ui-iconfont">&#336;</i><span class="txt">首页</span></a></li>
+        	<li class="nav03"><a href="javascript:;"><i class="ui-iconfont">&#336;</i><span class="txt">首页</span></a></li>
             <li class="nav04"><a href="#"><i class="ui-iconfont">&#430;</i>返回顶部</a></li>
         </ul>
   </div>

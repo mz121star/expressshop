@@ -3,12 +3,15 @@
 include_once('init.php');
 
 $collection = $db->selectCollection('e_favorite');
+$collection2 = $db->selectCollection('e_shops');
 $mystar = array('id' => $_GET['id']);
 
 $my_shop=$collection->find($mystar);
 $shop_array = array();
 while ($my_shop->hasNext()) {
-    $shop_array[] = $my_shop->getNext();
+    $_temp = $my_shop->getNext();
+    $shop_array[]=  $collection2->findOne(array("_id"=>$_temp["shopid"]));
+
 }
 
  ?>

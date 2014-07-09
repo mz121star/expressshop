@@ -14,7 +14,7 @@ $collection = $db->selectCollection('e_favorite');
 
 $fav = $collection->findOne(
     array(
-            'id'=>new MongoId($_GET['id']),
+            'id'=>$_GET['id'],
             'shopid'=>new MongoId($_GET['shopid'])
          ));
 

@@ -125,7 +125,7 @@ $(function(){
 	 <div class="bd">
 	 	<ul>
             <?php
-            foreach ($shop_array as $shop) {
+            foreach ($top_shop_array as $shop) {
             ?>
 	 			 			<li>
 	 				<a href="ticket.php?shopid=<?php echo $shop['obj']['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">

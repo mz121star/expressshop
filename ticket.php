@@ -10,6 +10,14 @@ $latitude = $trans->{'result'}[0]->{'y'};
 
 $shop = $collection->findOne(array('_id' => new MongoId($_GET['shopid'])));
 
+$collection = $db->selectCollection('e_favorite');
+
+$fav = $collection->findOne(
+    array(
+            '_id'=>new MongoId($_GET['id']),
+            'shopid'=>new MongoId($_GET['shopid'])
+         ));
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -64,8 +72,11 @@ $('.proContent  img').attr('height',"100%");
     <h1 class="g_tit">餐厅详情</h1>
     <div class="r">
         <div class="brr">
+             <?php if(!$fav){?>
             <a id="addstar" href="javascript:;"  ><i   class="fa fa-star-o"></i> </a>
+            <?php }else{ ?>
             <a id="removestar" style="display: none" href="javascript:;"  ><i   class="fa fa-star"></i> </a>
+            <?php } ?>
         </div>
     </div>
 </div>

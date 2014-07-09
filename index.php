@@ -128,8 +128,8 @@ $(function(){
             foreach ($top_shop_array as $shop) {
             ?>
 	 			 			<li>
-	 				<a href="ticket.php?shopid=<?php echo $shop['obj']['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
-	 				<img  style="vertical-align:middle;"  src="<?php if ($shop['obj']['image']) {echo  $shop['obj']['image'];} else {echo 'public/uploads/2.jpg';}?>" alt="蟹将军 " />
+	 				<a href="ticket.php?shopid=<?php echo $shop['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
+	 				<img  style="vertical-align:middle;"  src="<?php if ($shop['image']) {echo  $shop['image'];} else {echo 'public/uploads/2.jpg';}?>" alt="蟹将军 " />
 	 				</a>
 	 			</li>
             <?php

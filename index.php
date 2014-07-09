@@ -226,13 +226,13 @@ if($(".juMenu").hasClass('juMenuPay'))
   </div-->
   <div class="juMenu_list">
 
-        <ul>
+       <!-- <ul>
         	<li class="nav01"><a href="ticket.php/history"><i class="AppFonts">&#xf00e9;</i>最近浏览</a></li>
                          <li class="nav02"><a href="index.php/user/login?flag=_2Findex.php_2Fmember_2Fmyorder"><i class="ui-iconfont">&#508;</i>我的订单</a>
                     
-        </ul>
+        </ul>-->
         <ul>
-        	<li class="nav03"><a href="index.php/index/index"><i class="ui-iconfont">&#336;</i><span class="txt">首页</span></a></li>
+        	<li class="nav03"><a href="javascript:;"><i class="ui-iconfont">&#336;</i><span class="txt">首页</span></a></li>
             <li class="nav04"><a href="#"><i class="ui-iconfont">&#430;</i>返回顶部</a></li>
         </ul>
   </div>

@@ -30,7 +30,7 @@ $shop = $collection->findOne(array('_id' => new MongoId($_GET['shopid'])));
 <script src="public/js/TouchSlide.1.1.js"></script>
 <script src="public/js/jquery.lazyload.mini.js"></script> 
 <script src="public/js/base.js?v1.2"></script>
-<script src="public/js/juooostatistics.js"></script>  
+
 <script>
 $(window).load(function(){
 	if($("#loadingBj") && $(".ajaxLoad")){

@@ -61,7 +61,10 @@ $('.proContent  img').attr('height',"100%");
         </div>
     </div>
     <h1 class="g_tit">餐厅详情</h1>
-    <a href="#" class="ico_love"></a>
+    <div class="g-hd_moer">
+        <a href=" " class="btn_more"><span class="t_none">收藏</span></a>
+
+    </div>
 </div>
 
 

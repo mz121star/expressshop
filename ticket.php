@@ -119,7 +119,7 @@ $('.proContent  img').attr('height',"100%");
        
 <div class="pbtn">
                          
-          <a href="tel:1234568" class="btn_yu" id="yd">立即预定</a>
+          <a href="tel:<?php echo $shop['phone'];?>" class="btn_yu" id="yd">立即预定</a>
                     <a href="http://map.baidu.com/mobile/webapp/place/linesearch/foo=bar/from=place&end=word%3D<?php echo $shop['name'] ?>" class="btn_zai">导航到此</a>
           
           
@@ -138,7 +138,7 @@ $('.proContent  img').attr('height',"100%");
        	 <!-- <a href="User/login" class="myjuo"><i class="sp"></i>我的聚橙</a>
         <a href="Index/follow" class="atte"><i class="sp"></i>关注聚橙</a>  -->
   </div>
-  <div class="tel"><a href="tel_3A4001858666"><i class="fontIcon fa-phone"></i>400-185-8666</a></div>
+  <div class="tel"><a href="javascript:;"><i class="fontIcon fa-phone"></i>400-185-8666</a></div>
   
 <!---
 //公共底部end

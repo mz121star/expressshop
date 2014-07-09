@@ -104,6 +104,17 @@ private function checkSignature()
             case "LOCATION":
                 $content = "上传位置：纬度 ".$object->Latitude.";经度 ".$object->Longitude;
                 break;
+            case "CLICK":
+                switch ($object->EventKey)
+                {
+                    case "V1001_TODAY_EXPRE":
+                        $content = "请发送位置信息到公众账号，为您查找附近的餐厅";
+                        break;
+                    default:
+                        $content = "点击菜单：".$object->EventKey;
+                        break;
+                }
+                break;
             default:
                 $content = "receive a new event: ".$object->Event;
                 break;

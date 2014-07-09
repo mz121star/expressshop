@@ -49,9 +49,9 @@ private function checkSignature()
     public function responseMsg()
     {
         $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
-        $this->logger("R ".$postStr);
+        //$this->logger("R ".$postStr);
         if (!empty($postStr)){
-            $this->logger("R ".$postStr);
+           // $this->logger("R ".$postStr);
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
             $RX_TYPE = trim($postObj->MsgType);
              
@@ -83,7 +83,7 @@ private function checkSignature()
                     $result = "unknown msg type: ".$RX_TYPE;
                     break;
             }
-            $this->logger("T ".$result);
+          //  $this->logger("T ".$result);
             echo $result;
         }else {
             echo "";

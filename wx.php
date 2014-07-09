@@ -108,7 +108,12 @@ private function checkSignature()
                 switch ($object->EventKey)
                 {
                     case "V1001_TODAY_EXPRE":
-                        $content = "请发送位置信息到公众账号，为您查找附近的餐厅";
+                        $content = array();
+                        $content[] = array("Title"=>"大连快餐导航",
+                            "Description"=>"发送地理位置为您查找附近餐馆",
+                            "PicUrl"=>BASEURL."/public/uploads/yz.jpg",
+                            "Url" =>"");
+                        $result = $this->transmitNews($object, $content);
                         break;
                     default:
                         $content = "点击菜单：".$object->EventKey;
@@ -248,6 +253,7 @@ private function checkSignature()
 <MsgType><![CDATA[text]]></MsgType>
 <Content><![CDATA[%s]]></Content>
 </xml>";
+
         $result = sprintf($xmlTpl, $object->FromUserName, $object->ToUserName, time(), $content);
         return $result;
     }

@@ -53,7 +53,7 @@ while ($top_shops->hasNext()) {
 <script src="public/js/TouchSlide.1.1.js"></script>
 <script src="public/js/jquery.lazyload.mini.js"></script> 
 <script src="public/js/base.js?v1.2"></script>
-<script src="public/js/juooostatistics.js"></script>  
+
 <script>
 $(window).load(function(){
 	if($("#loadingBj") && $(".ajaxLoad")){
@@ -106,19 +106,7 @@ if($(".juMenu").hasClass('juMenuPay'))
   
 </div-->
 <script>
-$(function(){
-	$(".search_btn").click(function(){
-		var word = $('input[name="word"]').val();
-		if(word=="请输入演出、艺人、场馆名称" || word==""){
-			alert("请输入演出、艺人、场馆名称");
-			return false;
-		}
 
-		window.location.href=""+"/index.php/search/search?word="+escape(word);
-
-	
-	})
-})
 </script>
 <div class="g-mn">
 	<div id="slideBox" class="m-slide">

@@ -75,7 +75,7 @@ $('.proContent  img').attr('height',"100%");
              <?php if(!$fav){?>
             <a id="addstar" href="javascript:;"  ><i   class="fa fa-star-o"></i> </a>
             <?php }else{ ?>
-            <a id="removestar" style="display: none" href="javascript:;"  ><i   class="fa fa-star"></i> </a>
+            <a id="removestar"   href="javascript:;"  ><i   class="fa fa-star"></i> </a>
             <?php } ?>
         </div>
     </div>

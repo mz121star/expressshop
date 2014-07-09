@@ -18,9 +18,12 @@ if (count($_POST)) {
         }
         $geo = explode(',', $_POST['geo']);
         $top = (isset($_POST['top'])) ? $_POST['top'] : '0';
-        $add = array('name'=>$_POST['name'], 'star'=>$_POST['star'], 'address'=>$_POST['address'], 'location'=>array('longitude'=>floatval($geo[0]), 'latitude'=>floatval($geo[1])), 'price'=>$_POST['price'], 'type'=>$_POST['type'], 'description'=>$_POST['description'], 'top'=>$top, 'image'=>$imagename, 'imgname'=>$_FILES['image']['name']);
+        $add = array('name'=>$_POST['name'], 'star'=>$_POST['star'], 'address'=>$_POST['address'], 'location'=>array('longitude'=>floatval($geo[0]), 'latitude'=>floatval($geo[1])), 'price'=>$_POST['price'], 'type'=>$_POST['type'], 'description'=>$_POST['description'], 'top'=>$top,  'imgname'=>$_FILES['image']['name']);
         if (isset($_POST['shopid'])) {
             $add['_id'] = new MongoId($_POST['shopid']);
+        }
+        if ($imagename) {
+            $add['image'] = $imagename;
         }
         $collection->save($add);
         header('Location: /addshop.php');

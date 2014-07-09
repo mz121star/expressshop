@@ -18,12 +18,16 @@ if (count($_POST)) {
         }
         $geo = explode(',', $_POST['geo']);
         $top = (isset($_POST['top'])) ? $_POST['top'] : '0';
-        $add = array('name'=>$_POST['name'], 'star'=>$_POST['star'], 'address'=>$_POST['address'], 'location'=>array('longitude'=>floatval($geo[0]), 'latitude'=>floatval($geo[1])), 'price'=>$_POST['price'], 'type'=>$_POST['type'], 'description'=>$_POST['description'], 'top'=>$top,  'imgname'=>$_FILES['image']['name']);
+        $add = array('name'=>$_POST['name'], 'star'=>$_POST['star'], 'address'=>$_POST['address'], 'phone'=>$_POST['phone'], 'location'=>array('longitude'=>floatval($geo[0]), 'latitude'=>floatval($geo[1])), 'price'=>$_POST['price'], 'type'=>$_POST['type'], 'description'=>$_POST['description'], 'top'=>$top);
         if (isset($_POST['shopid'])) {
             $add['_id'] = new MongoId($_POST['shopid']);
         }
-        if ($imagename) {
+        if (isset($_POST['oldimage']) && $imagename) {
             $add['image'] = $imagename;
+            $add['imgname'] = $_FILES['image']['name'];
+        } elseif (!isset($_POST['oldimage']) && $imagename) {
+            $add['image'] = $imagename;
+            $add['imgname'] = $_FILES['image']['name'];
         }
         $collection->save($add);
         header('Location: /addshop.php');
@@ -32,7 +36,7 @@ if (count($_POST)) {
     }
 }
 
-$shopinfo = array('name'=>'', 'star'=>'', 'address'=>'', 'location'=>array('longitude'=>'','latitude'=>''), 'price'=>'', 'type'=>'', 'description'=>'', 'top'=>'', 'image'=>'', 'imgname'=>''); 
+$shopinfo = array('name'=>'', 'star'=>'', 'address'=>'', 'phone'=>'',  'location'=>array('longitude'=>'','latitude'=>''), 'price'=>'', 'type'=>'', 'description'=>'', 'top'=>'', 'image'=>'', 'imgname'=>''); 
 if (isset($_GET['shopid'])) {
     $shopinfo = $collection->findOne(array('_id' => new MongoId($_GET['shopid'])));
 }
@@ -61,10 +65,12 @@ while ($shops->hasNext()) {
 <div id="allmap"></div>
 <form method="post" action="addshop.php" enctype="multipart/form-data">
     <?php if (isset($shopinfo['_id'])) {?><input type="hidden" name="shopid" value="<?php echo $shopinfo['_id']?>"><?php }?>
+    <?php if (isset($shopinfo['image'])) {?><input type="hidden" name="oldimage" value="<?php echo $shopinfo['image']?>"><?php }?>
     <table>
         <tr><td>餐厅名称</td><td><input name="name" type="text" value="<?php echo $shopinfo['name']?>"></td></tr>
         <tr><td>星级</td><td><input name="star" type="text" value="<?php echo $shopinfo['star']?>"></td></tr>
         <tr><td>地址</td><td><input name="address" type="text" value="<?php echo $shopinfo['address']?>"></td></tr>
+        <tr><td>电话</td><td><input name="phone" type="text" value="<?php echo $shopinfo['phone']?>"></td></tr>
         <tr><td>坐标</td><td><input name="geo" id="geo" type="text" value="<?php if ($shopinfo['location']['longitude']) {echo $shopinfo['location']['longitude'].','.$shopinfo['location']['latitude'];}?>"></td></tr>
         <tr><td>平均价格</td><td><input name="price" type="text" value="<?php echo $shopinfo['price']?>"></td></tr>
         <tr><td>餐厅类型</td><td><select name="type">

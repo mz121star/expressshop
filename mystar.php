@@ -101,9 +101,7 @@ while ($my_shop->hasNext()) {
 
                 </dd>
 
-                <dd class="distance">
-                    <?php echo round($shop['dis']*6371*1000); ?>m
-                </dd>
+
             </dl>
         <?php
         }

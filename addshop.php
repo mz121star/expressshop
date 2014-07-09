@@ -22,12 +22,14 @@ if (count($_POST)) {
         if (isset($_POST['shopid'])) {
             $add['_id'] = new MongoId($_POST['shopid']);
         }
-        if (isset($_POST['oldimage']) && $imagename) {
-            $add['image'] = $imagename;
-            $add['imgname'] = $_FILES['image']['name'];
+        if (isset($_POST['oldimage']) ) {
+            if ($imagename) {
+                $add['image'] = $imagename;
+            } else {
+                $add['image'] = $_POST['oldimage'];
+            }
         } elseif (!isset($_POST['oldimage']) && $imagename) {
             $add['image'] = $imagename;
-            $add['imgname'] = $_FILES['image']['name'];
         }
         $collection->save($add);
         header('Location: /addshop.php');
@@ -64,8 +66,7 @@ while ($shops->hasNext()) {
     </div>
 <div id="allmap"></div>
 <form method="post" action="addshop.php" enctype="multipart/form-data">
-    <?php if (isset($shopinfo['_id'])) {?><input type="hidden" name="shopid" value="<?php echo $shopinfo['_id']?>"><?php }?>
-    <?php if (isset($shopinfo['image'])) {?><input type="hidden" name="oldimage" value="<?php echo $shopinfo['image']?>"><?php }?>
+    <?php if (isset($shopinfo['_id'])) {?><input type="hidden" name="shopid" value="<?php echo $shopinfo['_id']?>"><input type="hidden" name="oldimage" value="<?php echo $shopinfo['image']?>"><?php }?>
     <table>
         <tr><td>餐厅名称</td><td><input name="name" type="text" value="<?php echo $shopinfo['name']?>"></td></tr>
         <tr><td>星级</td><td><input name="star" type="text" value="<?php echo $shopinfo['star']?>"></td></tr>

@@ -2,6 +2,8 @@
 
 include_once('init.php');
 
+
+
 $shop_array = array();
 if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
     $trans_url = 'http://api.map.baidu.com/geoconv/v1/?coords='.$_GET['longitude'].','.$_GET['latitude'].'&from=3&to=5&ak=lcO3zSdb4cgCduHNBT3AoAR9';
@@ -14,6 +16,9 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
     $where = array('geoNear'=>'e_shops', 'near'=>array(floatval($longitude), floatval($latitude)), 'num'=>20,  'spherical'=>true, 'maxDistance'=>1/6371);
     $shops = $db->command($where);
     $shop_array = $shops['results'];
+
+
+
     
 //    $where = array('$geoNear'=>array('near'=>array($_GET['longitude'], $_GET['latitude']), 'distanceField'=>'price', 'limit'=>50, 'spherical'=>true, 'distanceMultiplier'=>3959, 'includeLocs'=>'location', 'maxDistance'=>0.08), 'skip'=>0, 'limit'=>5);
 //    $shops = $collection->aggregate($where);
@@ -22,7 +27,11 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
 //    $shops = $collection->find($where);
     
 }
-
+$top_shops = $collection->find(array('top'=>"1"));
+$top_shop_array = array();
+while ($top_shops->hasNext()) {
+    $top_shop_array[] = $top_shops->getNext();
+}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -115,36 +124,17 @@ $(function(){
 	<div id="slideBox" class="m-slide">
 	 <div class="bd">
 	 	<ul>
+            <?php
+            foreach ($shop_array as $shop) {
+            ?>
 	 			 			<li>
-	 				<a href="ticket.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
-	 				<img  style="vertical-align:middle;"  src="public/uploads/xjj.jpg" alt="蟹将军 " />
+	 				<a href="ticket.php?shopid=<?php echo $shop['obj']['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
+	 				<img  style="vertical-align:middle;"  src="<?php if ($shop['obj']['image']) {echo  $shop['obj']['image'];} else {echo 'public/uploads/2.jpg';}?>" alt="蟹将军 " />
 	 				</a>
 	 			</li>
-	 			 			<li>
-	 				<a href="ticket.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
-	 				<img  style="vertical-align:middle;"  src="public/uploads/yz.jpg" alt="银座日本料理 "  />
-	 				</a>
-	 			</li>
-	 			 			<li>
-	 				<a href="javascript:void(0)">
-	 				<img  style="vertical-align:middle;"   src="public/uploads/xjj.jpg" alt="蟹将军 " />
-	 				</a>
-	 			</li>
-	 			 			<li>
-	 				<a href="ticket.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
-	 				<img  style="vertical-align:middle;" src="public/uploads/xjj.jpg" alt="蟹将军 "  />
-	 				</a>
-	 			</li>
-	 			 			<li>
-	 				<a href="javascript:void(0)">
-	 				<img  style="vertical-align:middle;"   src="public/uploads/xjj.jpg" alt="蟹将军 "  />
-	 				</a>
-	 			</li>
-	 			 			<li>
-	 				<a href="javascript:void(0)">
-	 				<img  style="vertical-align:middle;"   src="public/uploads/xjj.jpg" alt="蟹将军 " />
-	 				</a>
-	 			</li>
+            <?php
+            }
+            ?>
 	 			 	
 	 	</ul>
 	 </div>
@@ -213,7 +203,7 @@ $(function(){
             ?>
     </div>
 
-    <div class="loadMore"  data_id="1"><!--i></i-->点击加载更多</div>
+    <div class="loadMore1"  data_id="1"><!--i></i-->没有更多了..</div>
 <!--div  id="city" style="display:none"-->
 <!--div data-role="popup" id="popupDialog-screen" style="display:none;">
 <div class="pop-list"  >

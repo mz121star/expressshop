@@ -110,7 +110,7 @@ private function checkSignature()
                     case "V1001_TODAY_EXPRE":
                         $content = array();
                         $content[] = array("Title"=>"大连快餐导航",
-                            "Description"=>"发送地理位置为您查找附近餐馆",
+                            "Description"=>"给本公众账号发送地理位置，即可为您快速查找附近的餐馆，餐厅列表正在快速增加中.敬请期待",
                             "PicUrl"=>BASEURL."/public/uploads/yz.jpg",
                             "Url" =>"");
                         $result = $this->transmitNews($object, $content);

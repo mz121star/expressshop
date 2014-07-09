@@ -61,8 +61,8 @@ $('.proContent  img').attr('height',"100%");
         </div>
     </div>
     <h1 class="g_tit">餐厅详情</h1>
-    <div class="2">
-        <div class="br2">
+    <div class="r">
+        <div class="brr">
             <a href="index.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>" class="btn_back">收藏</a>
         </div>
     </div>

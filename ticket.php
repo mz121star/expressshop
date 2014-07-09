@@ -137,7 +137,7 @@ $('.proContent  img').attr('height',"100%");
         $.get("favorite.php",{"shopid":'<?php echo $_GET["shopid"] ?>',"id":'<?php echo $_GET["id"] ?>'}).success(function(d){
 
                 $("#addstar").hide();
-                $("#removestar").display();
+                $("#removestar").show();
 
         })
     })

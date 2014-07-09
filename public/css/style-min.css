@@ -720,11 +720,11 @@ body { background: url(../image/bj.png); font-family: "\5FAE\8F6F\96C5\9ED1" }
     margin-top: -20px;
 }
 
-.addstar{
+#addstar{
     color:orange;
     font-size: 2rem;
 }
-.removestar{
+#removestar{
     color:orange;
     font-size: 2rem;
 }

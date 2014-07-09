@@ -64,8 +64,8 @@ $('.proContent  img').attr('height',"100%");
     <h1 class="g_tit">餐厅详情</h1>
     <div class="r">
         <div class="brr">
-            <a class="addstar" href="javascript:;"  ><i   class="fa fa-star-o"></i> </a>
-            <a class="removestar" style="display: none" href="javascript:;"  ><i   class="fa fa-star"></i> </a>
+            <a id="addstar" href="javascript:;"  ><i   class="fa fa-star-o"></i> </a>
+            <a id="removestar" style="display: none" href="javascript:;"  ><i   class="fa fa-star"></i> </a>
         </div>
     </div>
 </div>
@@ -133,11 +133,11 @@ $('.proContent  img').attr('height',"100%");
 
 </div>
 <script>
-    $(".addstar").on("click",function(){
+    $("#addstar").on("click",function(){
         $.get("favorite.php",{"shopid":'<?php echo $_GET["shopid"] ?>',"id":'<?php echo $_GET["id"] ?>'}).success(function(d){
             if(d==="1"){
-                $(".addstar").attr("display","none");
-                $(".removestar").attr("display","");
+                $("#addstar").attr("display","none");
+                $("#removestar").attr("display","");
             }
         })
     })

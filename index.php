@@ -106,19 +106,7 @@ if($(".juMenu").hasClass('juMenuPay'))
   
 </div-->
 <script>
-$(function(){
-	$(".search_btn").click(function(){
-		var word = $('input[name="word"]').val();
-		if(word=="请输入演出、艺人、场馆名称" || word==""){
-			alert("请输入演出、艺人、场馆名称");
-			return false;
-		}
 
-		window.location.href=""+"/index.php/search/search?word="+escape(word);
-
-	
-	})
-})
 </script>
 <div class="g-mn">
 	<div id="slideBox" class="m-slide">

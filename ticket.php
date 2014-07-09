@@ -64,7 +64,8 @@ $('.proContent  img').attr('height',"100%");
     <h1 class="g_tit">餐厅详情</h1>
     <div class="r">
         <div class="brr">
-            <a href="index.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>" ><i class="fa fa-star-o"></i> </a>
+            <a class="addstar" href="javascript:;"  ><i   class="fa fa-star-o"></i> </a>
+            <a class="removestar" style="display: none" href="javascript:;"  ><i   class="fa fa-star"></i> </a>
         </div>
     </div>
 </div>
@@ -132,100 +133,14 @@ $('.proContent  img').attr('height',"100%");
 
 </div>
 <script>
-/**
- * 选择场次
- * ?type {[type]}
- */
-var sid = 12894;
-var city_id = 1;
-var ROOT = "";
-$(function(){
-  $(".item  ul  li").click(function(){
-      if(!$(this).hasClass('sbon')){
-          var id=$(this).attr('data-id');
-          var onlineseat=$(this).attr("data-onlineseat");
-          var sessionid=$(this).attr("data-sessionid");
-          var projectid=$(this).attr("data-projectid");
-          var showid=$(this).attr('data-showid');
-          $(this).addClass('sbon').siblings("li").removeClass('sbon');
-          var url = ROOT+"/index.php/Ticket/cart?id="+id+"&sid="+sid+"&city_id="+city_id;
-          var onlineseat_url= ROOT+"/index.php/OnlineseatPortal/index?id="+id+'&sid='+showid+'&city_id='+city_id+"&projectId="+projectid+"&sessionId="+sessionid+"";
-          //var onlineseat_url="javascript:void(0)";
-          $("#yd").attr('href',url);
-            if(onlineseat==1){
-              $("#xz").attr("href",onlineseat_url);
+    $(".addstar").on("click",function(){
+        $.get("favorite.php",{"shopid":'<?php echo $_GET["shopid"] ?>',"id":'<?php echo $_GET["id"] ?>'}).success(function(d){
+            if(d==="1"){
+                $(".addstar").attr("display","none");
+                $(".removestar").attr("display","");
             }
-          $.ajax({
-              type:'post',
-              url:ROOT+"/index.php/Ticket/sellstatus",
-              data:"id="+id,
-              dataType:'json',
-              success:function(msg){
-                  var html;
-                  var cxhtml;
-                  var ehtml
-                  
-                  if(msg['sell_status'] == 1){
-                      html='<span class="ico_tag">售票中</span>';
-                  } else if(msg['sell_status'] == 2){
-                      html='<span class="ico_tag">预售</span>';
-                  } else {
-                      html='<span class="ico_tag yu">预定</span>';
-                  }
-                  if(msg.cx==1){
-                      cxhtml='<div class="wx_nut"><span class="ico_tag yu">促销信息</span>限时优惠<b class="c1">'+msg.per_discount+'</b>折!</div>';
-                  }
-                  if(msg.e_ticket==1){
-                      ehtml='<span class="ico_tag sell">电</span>';
-                  } else {
-                      ehtml="";
-                  }
-                  //alert(onlineseat)
-                      if(onlineseat==1){
-                              zhtml='<span class="ico_tag yu">选座</span>';
-                              $(".btn_zai").css("display","");
-                          } else {
-                              zhtml="";
-                              $(".btn_zai").css("display","none");
-                        }
-                  if(msg.class_type==1){
-                      //alert(1)
-                        $("#yd").css("display","none");
-                        $("#no").css("display","");
-                        $(".btn_zai").css("display","none");
-                  } else {
-                        //alert(2)
-                        $("#yd").css("display","");
-                        $("#no").css("display","none");
-                          //$(".btn_yu").css("display","none");
-                      
-                  }
-
-
-
-                  
-
-                  $("#status").html("").html(html+ehtml+zhtml);
-                  $('#cx').html("").html(cxhtml);
-
-                  //alert(html);
-                  //<div class="wx_nut"><span class="ico_tag yu">促销信息</span>限时优惠<b class="c1">0</b>折!</div>
-                  
-              }
-          })
-
-
-      }
-  })
-
-  $('.check').click(function(){
-      if($(this).attr('href')=="javascript:void(0)"){
-        //alert("请选择场次");
-         notice_box("请选择场次",1);
-      }
-  })
-
-})
+        })
+    })
 </script>
 
 

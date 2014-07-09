@@ -131,11 +131,12 @@ private function checkSignature()
         }
         //自动回复模式
         else{
+
             if (strstr($keyword, "文本")){
                 $content = "这是个文本消息";
-            }else if (strstr($keyword, "图文") || strstr($keyword, "单图文")){
+            }else if (strstr($keyword, "微社区") || strstr($keyword, "社区")|| strstr($keyword, "论坛")){
                 $content = array();
-                $content[] = array("Title"=>"单图文标题",  "Description"=>"单图文内容", "PicUrl"=>"http://discuz.comli.com/weixin/weather/icon/cartoon.jpg", "Url" =>"http://m.cnblogs.com/?u=txw1958");
+                $content[] = array("Title"=>"大连小城故事微社区",  "Description"=>"欢迎进入大连小城故事微社区，参与更多话题讨论", "PicUrl"=>"http://shp.qlogo.cn/gqclogo/0/259709128/104?max-age=2592000&t=0?t=1404907298?t=1404907506", "Url" =>"http://wx.wsq.qq.com/259709128");
             }else if (strstr($keyword, "多图文")){
                 $content = array();
                 $content[] = array("Title"=>"多图文1标题", "Description"=>"", "PicUrl"=>"http://discuz.comli.com/weixin/weather/icon/cartoon.jpg", "Url" =>"http://m.cnblogs.com/?u=txw1958");

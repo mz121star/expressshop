@@ -147,11 +147,18 @@ $('.proContent  img').attr('height',"100%");
 </div>
 <script>
     $("#addstar").on("click",function(){
-        $.get("favorite.php",{"shopid":'<?php echo $_GET["shopid"] ?>',"id":'<?php echo $_GET["id"] ?>'}).success(function(d){
+        $.get("favorite.php",{"shopid":'<?php echo $_GET["shopid"] ?>',"id":'<?php echo $_GET["id"] ?>',"flag","add"}).success(function(d){
                 $("#addstar").hide();
                 $("#removestar").show();
         })
     })
+    $("#removestar").on("click",function(){
+        $.get("favorite.php",{"shopid":'<?php echo $_GET["shopid"] ?>',"id":'<?php echo $_GET["id"] ?>',"flag","remove"}).success(function(d){
+            $("#addstar").show();
+            $("#removestar").hide();
+        })
+    })
+
 </script>
 
 

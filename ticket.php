@@ -23,6 +23,7 @@ $shop = $collection->findOne(array('_id' => new MongoId($_GET['shopid'])));
 <meta name="apple-mobile-app-status-bar-style" content="white" />
 <meta name="format-detection" content="telephone=no" />
 <meta name="copyright" content="Copyright (c) 2007-2014 juooo" />
+ <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="public/css/style-min.css?v1.2.32">
 <link rel="stylesheet" type="text/css" href="public/css/alert.css?v1.6">
 <script src="public/js/jquery-1.7.1.min.js"></script> 
@@ -63,7 +64,7 @@ $('.proContent  img').attr('height',"100%");
     <h1 class="g_tit">餐厅详情</h1>
     <div class="r">
         <div class="brr">
-            <a href="index.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>" class="btn_back">收藏</a>
+            <a href="index.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>" ><i class="fa fa-star-o"></i> </a>
         </div>
     </div>
 </div>

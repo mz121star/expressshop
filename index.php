@@ -23,13 +23,13 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
     
 //    $where = array('location'=>array('$near'=>array('$geometry'=>array('type'=>'Point', 'coordinates'=>array(floatval($longitude), floatval($latitude))), '$maxDistance'=>1000)));
 //    $shops = $collection->find($where);
-    
+    $top_shops = $collection->find(array('top'=>"1"));
+    $top_shop_array = array();
+    while ($top_shops->hasNext()) {
+        $top_shop_array[] = $top_shops->getNext();
+    }
 }
-$top_shops = $collection->find(array('top'=>"1"));
-$top_shop_array = array();
-while ($top_shops->hasNext()) {
-    $top_shop_array[] = $top_shops->getNext();
-}
+
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -74,7 +74,7 @@ while ($top_shops->hasNext()) {
         }
     </script>
     <?php
-
+exit;
       }
     ?>
 

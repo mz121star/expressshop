@@ -165,7 +165,7 @@ $('.proContent  img').attr('height',"100%");
 
             </ul>
             <ul>
-                <li class="nav03"><a href="javascript:;"><i class="ui-iconfont">&#336;</i><span class="txt">首页</span></a></li>
+                <li class="nav03"><a href="index.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>"><i class="ui-iconfont">&#336;</i><span class="txt">首页</span></a></li>
                 <li class="nav04"><a href="#"><i class="ui-iconfont">&#430;</i>返回顶部</a></li>
             </ul>
         </div>

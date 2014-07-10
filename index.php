@@ -16,9 +16,8 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
     $where = array('geoNear'=>'e_shops', 'near'=>array(floatval($longitude), floatval($latitude)), 'num'=>20,  'spherical'=>true, 'maxDistance'=>1/6371);
     $shops = $db->command($where);
     $shop_array = $shops['results'];
-
-
-
+    print_r("<pre>");
+    print_r($shop_array);
     
 //    $where = array('$geoNear'=>array('near'=>array($_GET['longitude'], $_GET['latitude']), 'distanceField'=>'price', 'limit'=>50, 'spherical'=>true, 'distanceMultiplier'=>3959, 'includeLocs'=>'location', 'maxDistance'=>0.08), 'skip'=>0, 'limit'=>5);
 //    $shops = $collection->aggregate($where);
@@ -49,7 +48,35 @@ while ($top_shops->hasNext()) {
 <meta name="copyright" content="Copyright (c) 2007-2014 juooo" />
 <link rel="stylesheet" type="text/css" href="public/css/style-min.css?v1.2.32">
 <link rel="stylesheet" type="text/css" href="public/css/alert.css?v1.6">
-<script src="public/js/jquery-1.7.1.min.js"></script> 
+<script src="public/js/jquery-1.7.1.min.js"></script>
+
+
+        <?php
+  if (!$_GET['longitude'] || !$_GET['latitude']) { ?>
+        <script type="text/javascript">
+        if (window.navigator.geolocation) {
+            var options = {
+                enableHighAccuracy: true
+            };
+            window.navigator.geolocation.getCurrentPosition(handleSuccess, handleError, options);
+        } else {
+            alert("浏览器不支持html5来获取地理位置信息");
+        }
+
+        function handleSuccess(position){
+            // 获取到当前位置经纬度  本例中是chrome浏览器取到的是google地图中的经纬度
+            var lng = position.coords.longitude;
+            var lat = position.coords.latitude;
+            window.location.href="index.php?longitude="+lng+"&latitude="+lat+"&id=<?php if (isset($_GET['id'])) {echo $_GET['id'];} ?>";
+        }
+
+        function handleError(error){
+
+        }
+    </script>
+    <?php }
+    ?>
+
 <script src="public/js/TouchSlide.1.1.js"></script>
 <script src="public/js/jquery.lazyload.mini.js"></script> 
 <script src="public/js/base.js?v1.2"></script>
@@ -226,11 +253,11 @@ if($(".juMenu").hasClass('juMenuPay'))
   </div-->
   <div class="juMenu_list">
 
-       <!-- <ul>
-        	<li class="nav01"><a href="ticket.php/history"><i class="AppFonts">&#xf00e9;</i>最近浏览</a></li>
-                         <li class="nav02"><a href="index.php/user/login?flag=_2Findex.php_2Fmember_2Fmyorder"><i class="ui-iconfont">&#508;</i>我的订单</a>
+        <ul>
+        	<li class="nav01"><a href="mystar.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>"><i class="AppFonts">&#xf00e9;</i>我的收藏</a></li>
+            <li class="nav02"><a href="javascript:;"><i class="ui-iconfont">&#508;</i>关注我们</a>
                     
-        </ul>-->
+        </ul>
         <ul>
         	<li class="nav03"><a href="javascript:;"><i class="ui-iconfont">&#336;</i><span class="txt">首页</span></a></li>
             <li class="nav04"><a href="#"><i class="ui-iconfont">&#430;</i>返回顶部</a></li>

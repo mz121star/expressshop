@@ -116,7 +116,45 @@ while ($my_shop->hasNext()) {
 
     </div>
     <div class="tel"><a href="tel_3A4001858666"><i class="fontIcon fa-phone"></i>400-185-8666</a></div>
+    <div class="juMenu">
+        <div class="t">
+            <div class="ju_logo" onclick="check_footer(this)"></div>
+        </div>
+        <!--div class="juSearch">
+              <input class="text" onfocus="if(value=='请输入演出、艺人、场馆名称') {value=''}" onblur="if (value=='') {value='请输入演出、艺人、场馆名称'}" value="请输入演出、艺人、场馆名称" type="text">
+              <a href="javascript:;" class="btn"><i class="icon_txt s_btnIco"></i></a>
+        </div-->
+        <div class="juMenu_list">
 
+            <ul>
+                <li class="nav01"><a href="mystar.php?&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>"><i class="AppFonts">&#xf00e9;</i>我的收藏</a></li>
+                <li class="nav02"><a href="javascript:;"><i class="ui-iconfont">&#508;</i>关注我们</a>
+
+            </ul>
+            <ul>
+                <li class="nav03"><a href="index.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>"><i class="ui-iconfont">&#336;</i><span class="txt">首页</span></a></li>
+                <li class="nav04"><a href="#"><i class="ui-iconfont">&#430;</i>返回顶部</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * 底部
+         * ?param  {[type]} obj [description]
+         * ?return {[type]}     [description]
+         */
+        function check_footer(obj)
+        {
+            if($(".juMenu").hasClass('juMenuPay'))
+            {
+                $(".juMenu").removeClass('juMenuPay');
+            } else {
+                $(".juMenu").addClass('juMenuPay');
+            }
+
+        }
+    </script>
     <!---
     //公共底部end
     -->

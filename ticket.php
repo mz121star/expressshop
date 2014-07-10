@@ -131,19 +131,66 @@ $('.proContent  img').attr('height',"100%");
 //公共底部begin
 -->
   <div class="foot-menu">
-<!-- UY BEGIN -->
-<div id="uyan_frame"></div>
-<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1814370"></script>
-<!-- UY END -->
-       	 <!-- <a href="User/login" class="myjuo"><i class="sp"></i>我的聚橙</a>
-        <a href="Index/follow" class="atte"><i class="sp"></i>关注聚橙</a>  -->
+      <div id="SOHUCS" sid="<?php echo $_GET['shopid'] ?>"></div>
+      <script>
+          (function(){
+              var appid = 'cyrgsD6Hd';
+              var conf = 'prod_bf174219a95464855a08739eebba5cd9';
+              var doc = document,
+                  s = doc.createElement('script');
+              s.id = 'changyan_mobile_js';
+              h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+              s.type = 'text/javascript';
+              s.charset = 'utf-8';
+              s.src =  'http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id='+appid+'&conf='+conf;
+              h.insertBefore(s,h.firstChild);
+          })();
+      </script>
   </div>
   <div class="tel"><a href="javascript:;"><i class="fontIcon fa-phone"></i>400-185-8666</a></div>
-  
-<!---
-//公共底部end
--->
 
+    <div class="juMenu">
+        <div class="t">
+            <div class="ju_logo" onclick="check_footer(this)"></div>
+        </div>
+        <!--div class="juSearch">
+              <input class="text" onfocus="if(value=='请输入演出、艺人、场馆名称') {value=''}" onblur="if (value=='') {value='请输入演出、艺人、场馆名称'}" value="请输入演出、艺人、场馆名称" type="text">
+              <a href="javascript:;" class="btn"><i class="icon_txt s_btnIco"></i></a>
+        </div-->
+        <div class="juMenu_list">
+
+            <ul>
+                <li class="nav01"><a href="mystar.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>"><i class="AppFonts">&#xf00e9;</i>我的收藏</a></li>
+                <li class="nav02"><a href="javascript:;"><i class="ui-iconfont">&#508;</i>关注我们</a>
+
+            </ul>
+            <ul>
+                <li class="nav03"><a href="index.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>"><i class="ui-iconfont">&#336;</i><span class="txt">首页</span></a></li>
+                <li class="nav04"><a href="#"><i class="ui-iconfont">&#430;</i>返回顶部</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!---
+    //公共底部end
+    -->
+    <script>
+        /**
+         * 底部
+         * ?param  {[type]} obj [description]
+         * ?return {[type]}     [description]
+         */
+        function check_footer(obj)
+        {
+            if($(".juMenu").hasClass('juMenuPay'))
+            {
+                $(".juMenu").removeClass('juMenuPay');
+            } else {
+                $(".juMenu").addClass('juMenuPay');
+            }
+
+        }
+    </script>
 </div>
 <script>
     $("#addstar").on("click",function(){

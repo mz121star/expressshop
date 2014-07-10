@@ -131,12 +131,21 @@ $('.proContent  img').attr('height',"100%");
 //公共底部begin
 -->
   <div class="foot-menu">
-<!-- UY BEGIN -->
-<div id="uyan_frame"></div>
-<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1814370"></script>
-<!-- UY END -->
-       	 <!-- <a href="User/login" class="myjuo"><i class="sp"></i>我的聚橙</a>
-        <a href="Index/follow" class="atte"><i class="sp"></i>关注聚橙</a>  -->
+      <div id="SOHUCS"></div>
+      <script>
+          (function(){
+              var appid = 'cyrgsD6Hd';
+              var conf = 'prod_bf174219a95464855a08739eebba5cd9';
+              var doc = document,
+                  s = doc.createElement('script');
+              s.id = 'changyan_mobile_js';
+              h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+              s.type = 'text/javascript';
+              s.charset = 'utf-8';
+              s.src =  'http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id='+appid+'&conf='+conf;
+              h.insertBefore(s,h.firstChild);
+          })();
+      </script>
   </div>
   <div class="tel"><a href="javascript:;"><i class="fontIcon fa-phone"></i>400-185-8666</a></div>
 

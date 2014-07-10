@@ -49,7 +49,35 @@ while ($top_shops->hasNext()) {
 <meta name="copyright" content="Copyright (c) 2007-2014 juooo" />
 <link rel="stylesheet" type="text/css" href="public/css/style-min.css?v1.2.32">
 <link rel="stylesheet" type="text/css" href="public/css/alert.css?v1.6">
-<script src="public/js/jquery-1.7.1.min.js"></script> 
+<script src="public/js/jquery-1.7.1.min.js"></script>
+
+
+        <?php
+  if (!$_GET['longitude'] || !$_GET['latitude']) { ?>
+        <script type="text/javascript">
+        if (window.navigator.geolocation) {
+            var options = {
+                enableHighAccuracy: true
+            };
+            window.navigator.geolocation.getCurrentPosition(handleSuccess, handleError, options);
+        } else {
+            alert("浏览器不支持html5来获取地理位置信息");
+        }
+
+        function handleSuccess(position){
+            // 获取到当前位置经纬度  本例中是chrome浏览器取到的是google地图中的经纬度
+            var lng = position.coords.longitude;
+            var lat = position.coords.latitude;
+            window.location.href="index.php?longitude="+lng+"&latitude="+lat+"&id=<?php if (isset($_GET['id'])) {echo $_GET['id'];} ?>";
+        }
+
+        function handleError(error){
+
+        }
+    </script>
+    <?php }
+    ?>
+
 <script src="public/js/TouchSlide.1.1.js"></script>
 <script src="public/js/jquery.lazyload.mini.js"></script> 
 <script src="public/js/base.js?v1.2"></script>

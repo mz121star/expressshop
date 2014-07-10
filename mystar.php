@@ -63,7 +63,7 @@ while ($my_shop->hasNext()) {
 <div class="g-hd">
     <div class="l">
         <div class="br1">
-            <a href="index.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>" class="btn_back">返回</a>
+            <a href="index.php?id=<?php echo $_GET['id'] ?> " class="btn_back">返回</a>
         </div>
     </div>
     <h1 class="g_tit">我的收藏</h1>
@@ -77,9 +77,9 @@ while ($my_shop->hasNext()) {
         <?php
         foreach ($shop_array as $shop) {
             ?>
-            <dl class="item cf" onclick="window.location.href='ticket.php?shopid=<?php echo $shop['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>'">
+            <dl class="item cf" onclick="window.location.href='ticket.php?shopid=<?php echo $shop['_id'];?>&id=<?php echo $_GET['id'] ?> '">
                 <h2><?php echo $shop['name'];?></h2>
-                <dt><a href="ticket.php?shopid=<?php echo $shop['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
+                <dt><a href="ticket.php?shopid=<?php echo $shop['_id'];?>&id=<?php echo $_GET['id'] ?> ">
                         <img src="<?php if ($shop['image']) {echo  $shop['image'];} else {echo 'public/uploads/2.jpg';}?>">
                     </a>
                 <div class="ico_zhu">
@@ -127,12 +127,14 @@ while ($my_shop->hasNext()) {
         <div class="juMenu_list">
 
             <ul>
-                <li class="nav01"><a href="mystar.php?&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>"><i class="AppFonts">&#xf00e9;</i>我的收藏</a></li>
+                <li class="nav01"><a href="mystar.php?&id=<?php echo $_GET['id'] ?> "><i class="AppFonts">&#xf00e9;</i>我的收藏</a></li>
+                <li class="nav01"><a href="mystar.php?&id=<?php echo $_GET['id'] ?> "><i class="AppFonts">&#xf00e9;</i>我的收藏</a></li>
                 <li class="nav02"><a href="javascript:;"><i class="ui-iconfont">&#508;</i>关注我们</a>
 
             </ul>
             <ul>
-                <li class="nav03"><a href="index.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>"><i class="ui-iconfont">&#336;</i><span class="txt">首页</span></a></li>
+                <li class="nav03"><a href="index.php?id=<?php echo $_GET['id'] ?> "><i class="ui-iconfont">&#336;</i><span class="txt">首页</span></a></li>
+                <li class="nav03"><a href="index.php?id=<?php echo $_GET['id'] ?> "><i class="ui-iconfont">&#336;</i><span class="txt">首页</span></a></li>
                 <li class="nav04"><a href="#"><i class="ui-iconfont">&#430;</i>返回顶部</a></li>
             </ul>
         </div>

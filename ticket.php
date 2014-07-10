@@ -151,7 +151,7 @@ $('.proContent  img').attr('height',"100%");
         <div class="juMenu_list">
 
             <ul>
-                <li class="nav01"><a href="mystar.php?shopid=<?php echo $shop['obj']['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>"><i class="AppFonts">&#xf00e9;</i>我的收藏</a></li>
+                <li class="nav01"><a href="mystar.php?shopid=<?php echo $shop['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>"><i class="AppFonts">&#xf00e9;</i>我的收藏</a></li>
                 <li class="nav02"><a href="javascript:;"><i class="ui-iconfont">&#508;</i>关注我们</a>
 
             </ul>

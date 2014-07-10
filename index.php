@@ -228,7 +228,7 @@ if($(".juMenu").hasClass('juMenuPay'))
 
         <ul>
         	<li class="nav01"><a href="mystar.php?shopid=<?php echo $shop['obj']['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>"><i class="AppFonts">&#xf00e9;</i>我的收藏</a></li>
-            <li class="nav02"><a href="index.php/user/login?flag=_2Findex.php_2Fmember_2Fmyorder"><i class="ui-iconfont">&#508;</i>我的订单</a>
+            <li class="nav02"><a href="javascript:;"><i class="ui-iconfont">&#508;</i>关注我们</a>
                     
         </ul>
         <ul>

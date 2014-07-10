@@ -131,7 +131,7 @@ $('.proContent  img').attr('height',"100%");
 //公共底部begin
 -->
   <div class="foot-menu">
-      <div id="SOHUCS"></div>
+      <div id="SOHUCS" sid="<?php echo $_GET['shopid'] ?>"></div>
       <script>
           (function(){
               var appid = 'cyrgsD6Hd';

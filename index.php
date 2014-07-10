@@ -51,7 +51,7 @@ while ($top_shops->hasNext()) {
 
 
         <?php
-  if (!$_GET['longitude'] || !$_GET['latitude']) { ?>
+  if (!isset($_GET['longitude']) && !isset($_GET['latitude'])) { ?>
         <script type="text/javascript">
         if (window.navigator.geolocation) {
             var options = {
@@ -73,7 +73,9 @@ while ($top_shops->hasNext()) {
 
         }
     </script>
-    <?php }
+    <?php
+
+      }
     ?>
 
 <script src="public/js/TouchSlide.1.1.js"></script>

@@ -115,6 +115,14 @@ private function checkSignature()
                             "Url" =>"http://shop.web.dlwebs.com/index.php?id=".$object->FromUserName);
                         $result = $this->transmitNews($object, $content);
                         break;
+                    case "V1001_TODAY_FAV":
+                        $content = array();
+                        $content[] = array("Title"=>"我收藏的饭店",
+                            "Description"=>"点击进入查看我收藏的饭店",
+                            "PicUrl"=>BASEURL."/public/uploads/yz.jpg",
+                            "Url" =>"http://shop.web.dlwebs.com/mystar.php?id=".$object->FromUserName);
+                        $result = $this->transmitNews($object, $content);
+                        break;
                     case "add_head_v":
                         $content = array();
                         $content[] = array("Title"=>"头像加V功能",

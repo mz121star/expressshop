@@ -110,9 +110,9 @@ private function checkSignature()
                     case "V1001_TODAY_EXPRE":
                         $content = array();
                         $content[] = array("Title"=>"大连快餐导航",
-                            "Description"=>"给本公众账号发送地理位置，即可为您快速查找附近的餐馆，餐厅列表正在快速增加中.敬请期待",
+                            "Description"=>"点击进入查找您附近的餐馆",
                             "PicUrl"=>BASEURL."/public/uploads/yz.jpg",
-                            "Url" =>"");
+                            "Url" =>"http://shop.web.dlwebs.com/index.php?id=".$object->FromUserName);
                         $result = $this->transmitNews($object, $content);
                         break;
                     case "add_head_v":

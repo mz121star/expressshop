@@ -78,7 +78,8 @@ function img_water_mark($srcImg, $waterImg, $savepath=null, $savename=null, $pos
         case 5: $x = $srcinfo[0]-$waterinfo[0]; $y = $srcinfo[1]-$waterinfo[1]; break;
         default: $x=$y=0;
     }
-    imagecopymerge($srcImgObj, $waterImgObj, $x, $y, 0, 0, $waterinfo[0], $waterinfo[1], $alpha);
+  //  imagecopymerge($srcImgObj, $waterImgObj, $x, $y, 0, 0, $waterinfo[0], $waterinfo[1], $alpha);
+    imagecopy($srcImgObj, $waterImgObj, $x, $y, 0, 0, $waterinfo[0], $waterinfo[1]);
     switch ($srcinfo[2]) {
         case 1: imagegif($srcImgObj, $savefile); break;
         case 2: imagejpeg($srcImgObj, $savefile); break;

@@ -6,6 +6,8 @@ include_once('init.php');
 
 $shop_array = array();
 if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
+    setcookie("longitude",$_GET['longitude']);
+    setcookie("latitude",$_GET['latitude']);
     $trans_url = 'http://api.map.baidu.com/geoconv/v1/?coords='.$_GET['longitude'].','.$_GET['latitude'].'&from=3&to=5&ak=lcO3zSdb4cgCduHNBT3AoAR9';
     $trans_content = file_get_contents($trans_url);
     $trans = json_decode($trans_content);
@@ -144,7 +146,7 @@ if($(".juMenu").hasClass('juMenuPay'))
             foreach ($top_shop_array as $shop) {
             ?>
 	 			 			<li>
-	 				<a href="ticket.php?shopid=<?php echo $shop['_id'];?>&id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>">
+	 				<a href="ticket.php?shopid=<?php echo $shop['_id'];?>&id=<?php echo $_GET['id'] ?> ">
 	 				<img  style="vertical-align:middle;"  src="<?php if ($shop['image']) {echo  $shop['image'];} else {echo 'public/uploads/2.jpg';}?>" alt="蟹将军 " />
 	 				</a>
 	 			</li>

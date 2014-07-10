@@ -2,11 +2,11 @@
 
 include_once('init.php');
 
-$trans_url = 'http://api.map.baidu.com/geoconv/v1/?coords='.$_GET['longitude'].','.$_GET['latitude'].'&from=3&to=5&ak=lcO3zSdb4cgCduHNBT3AoAR9';
-$trans_content = file_get_contents($trans_url);
-$trans = json_decode($trans_content);
-$longitude = $trans->{'result'}[0]->{'x'};
-$latitude = $trans->{'result'}[0]->{'y'};
+//$trans_url = 'http://api.map.baidu.com/geoconv/v1/?coords='.$_GET['longitude'].','.$_GET['latitude'].'&from=3&to=5&ak=lcO3zSdb4cgCduHNBT3AoAR9';
+//$trans_content = file_get_contents($trans_url);
+//$trans = json_decode($trans_content);
+//$longitude = $trans->{'result'}[0]->{'x'};
+//$latitude = $trans->{'result'}[0]->{'y'};
 
 $shop = $collection->findOne(array('_id' => new MongoId($_GET['shopid'])));
 
@@ -66,7 +66,7 @@ $('.proContent  img').attr('height',"100%");
 <div class="g-hd">
     <div class="l">
          <div class="br1">
-        <a href="index.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>" class="btn_back">返回</a>
+        <a href="index.php?id=<?php echo $_GET['id'] ?> " class="btn_back">返回</a>
         </div>
     </div>
     <h1 class="g_tit">餐厅详情</h1>
@@ -160,12 +160,12 @@ $('.proContent  img').attr('height',"100%");
         <div class="juMenu_list">
 
             <ul>
-                <li class="nav01"><a href="mystar.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>"><i class="AppFonts">&#xf00e9;</i>我的收藏</a></li>
+                <li class="nav01"><a href="mystar.php?id=<?php echo $_GET['id'] ?> "><i class="AppFonts">&#xf00e9;</i>我的收藏</a></li>
                 <li class="nav02"><a href="javascript:;"><i class="ui-iconfont">&#508;</i>关注我们</a>
 
             </ul>
             <ul>
-                <li class="nav03"><a href="index.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>"><i class="ui-iconfont">&#336;</i><span class="txt">首页</span></a></li>
+                <li class="nav03"><a href="index.php?id=<?php echo $_GET['id'] ?> "><i class="ui-iconfont">&#336;</i><span class="txt">首页</span></a></li>
                 <li class="nav04"><a href="#"><i class="ui-iconfont">&#430;</i>返回顶部</a></li>
             </ul>
         </div>

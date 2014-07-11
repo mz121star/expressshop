@@ -54,7 +54,13 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
 
         <?php
   if (!isset($_GET['longitude']) && !isset($_GET['latitude'])) { ?>
+
+
+
         <script type="text/javascript">
+
+
+
         if (window.navigator.geolocation) {
             var options = {
                 enableHighAccuracy: true

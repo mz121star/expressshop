@@ -15,7 +15,7 @@ $srcImage =$filepath.$imagename;
 //水印文字
 //$obj->waterStr = '生日快乐';
 //水印图片
-$waterImage= $_SERVER['DOCUMENT_ROOT']."/img/water.png";
+$waterImage= $_SERVER['DOCUMENT_ROOT']."/img/water".rand(1,4).".png";
 //文字字体大小
 
 $resultImage=img_water_mark($srcImage,$waterImage);

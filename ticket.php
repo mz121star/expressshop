@@ -150,7 +150,7 @@ $('.proContent  img').attr('height',"100%");
   <div class="tel"><a href="javascript:;"><i class="fontIcon fa-phone"></i>400-185-8666</a></div>
 
     <div class="juMenu">
-        <div class="t">
+        <div class="t" style="bottom: 98px;">
             <div class="ju_logo" onclick="check_footer(this)"></div>
         </div>
         <!--div class="juSearch">
@@ -181,8 +181,10 @@ $('.proContent  img').attr('height',"100%");
         {
             if($(".juMenu").hasClass('juMenuPay'))
             {
+                $(".t").css({bottom:"98px"})
                 $(".juMenu").removeClass('juMenuPay');
             } else {
+                $(".t").css({bottom:"50px"})
                 $(".juMenu").addClass('juMenuPay');
             }
 

@@ -243,11 +243,11 @@ body { background: url(../image/bj.png); font-family: "\5FAE\8F6F\96C5\9ED1" }
 
 .tel a:active { color: #f59131 }
 
-.juMenu { position: fixed; left: 0; bottom: -96px; z-index: 3; width: 100%; -webkit-transition: .5s all ease }
+.juMenu { position: fixed; left: 0; bottom: -48px; z-index: 3; width: 100%; /* -webkit-transition: .5s all ease  */}
 
 .juMenuPay { bottom: 0 }
 
-.juMenu .t { height: 44px; border-bottom: 0 solid #f37800; position: absolute; left: 10px; bottom: 100px }
+.juMenu .t { height: 44px; border-bottom: 0 solid #f37800; position: absolute; left: 10px; bottom: 50px;}
 
 .juMenu .t .ju_logo { width: 52px; height: 44px; margin-left: 10px; display: inline-block; background: url(../image/f_juoLoge.png@v=2.2) no-repeat; -webkit-border-radius: 2px 2px 0 0; radius: 2px 2px 0 0; border-bottom: 0 }
 

@@ -63,6 +63,7 @@ while ($shops->hasNext()) {
     <script src="js/vendor/jquery-1.10.2.min.js"></script>
 
     <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="public/css/style-min.css?v1.2.32">
     <title>获取商家坐标</title>
 </head>
 <body>

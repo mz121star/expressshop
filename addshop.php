@@ -87,7 +87,7 @@ while ($shops->hasNext()) {
                            <tr><td>电话</td><td><input  class="form-control" name="phone" type="text" value="<?php echo $shopinfo['phone']?>"></td></tr>
                            <tr><td>坐标</td><td><input  class="form-control"  name="geo" id="geo" type="text" value="<?php if ($shopinfo['location']['longitude']) {echo $shopinfo['location']['longitude'].','.$shopinfo['location']['latitude'];}?>"></td></tr>
                            <tr><td>平均价格</td><td><input  class="form-control"  name="price" type="text" value="<?php echo $shopinfo['price']?>"></td></tr>
-                           <tr><td>餐厅类型</td><td><select name="type"   class="form-control" >
+                           <tr class="hidden"><td>餐厅类型</td><td><select  name="type"   class="form-control "  >
                                        <option value="zhongcan" <?php if ($shopinfo['type'] == 'zhongcan') {echo 'selected';}?>>中餐</option>
                                        <option value="xican" <?php if ($shopinfo['type'] == 'xican') {echo 'selected';}?>>西餐</option>
                                        <option value="hancan" <?php if ($shopinfo['type'] == 'hancan') {echo 'selected';}?>>韩餐</option>

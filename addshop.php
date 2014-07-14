@@ -56,8 +56,13 @@ while ($shops->hasNext()) {
     <style type="text/css">
                 #allmap{width:400px;height:400px;}
     </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <script type="text/javascript" name="baidu-tc-cerfication" src="http://apps.bdimg.com/cloudaapi/lightapp.js#8994ab4df9d6a5a169421089618fc5c3"></script><script type="text/javascript">window.bd && bd._qdc && bd._qdc.init({app_id: '2960154a5bbf7ef967f95eff'});</script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=lcO3zSdb4cgCduHNBT3AoAR9"></script>
+
+    <script src="js/vendor/jquery-1.10.2.min.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
     <title>获取商家坐标</title>
 </head>
 <body>

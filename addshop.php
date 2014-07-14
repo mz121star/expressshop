@@ -126,7 +126,7 @@ while ($shops->hasNext()) {
                 foreach ($shop_array as $value) { ?>
                     <tr>
                         <td><?php echo $value['name']?></td>
-                        <td><span class="star star-<?php echo $shop['star']*10;?>"></span></td>
+                        <td><span class="star star-<?php echo $value['star']*10;?>"></span></td>
                         <td><?php echo $value['address']?></td>
                         <td><?php echo $value['price']?>￥</td>
                         <td><img src="<?php echo $value['image']?>" width="100" /></td>

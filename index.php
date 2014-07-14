@@ -264,7 +264,7 @@ if($(".juMenu").hasClass('juMenuPay'))
 
         <ul>
         	<li class="nav01"><a href="mystar.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>"><i class="AppFonts">&#xf00e9;</i>我的收藏</a></li>
-            <li class="nav02"><a href="javascript:;"><i class="ui-iconfont">&#508;</i>关注我们</a>
+            <li class="nav02"><a href="http://mp.weixin.qq.com/s?__biz=MzA5NzMzMTMwMA==&mid=200930116&idx=1&sn=b4f4075d44a9172aee9ee5056cd99003#rd"><i class="ui-iconfont">&#508;</i>关注我们</a>
                     
         </ul>
 

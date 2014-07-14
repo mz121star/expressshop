@@ -73,22 +73,22 @@ while ($shops->hasNext()) {
 <form method="post" action="addshop.php" enctype="multipart/form-data">
     <?php if (isset($shopinfo['_id'])) {?><input type="hidden" name="shopid" value="<?php echo $shopinfo['_id']?>"><input type="hidden" name="oldimage" value="<?php echo $shopinfo['image']?>"><?php }?>
     <table>
-        <tr><td>餐厅名称</td><td><input name="name" type="text" value="<?php echo $shopinfo['name']?>"></td></tr>
-        <tr><td>星级</td><td><input name="star" type="text" value="<?php echo $shopinfo['star']?>"></td></tr>
-        <tr><td>地址</td><td><input name="address" type="text" value="<?php echo $shopinfo['address']?>"></td></tr>
-        <tr><td>电话</td><td><input name="phone" type="text" value="<?php echo $shopinfo['phone']?>"></td></tr>
-        <tr><td>坐标</td><td><input name="geo" id="geo" type="text" value="<?php if ($shopinfo['location']['longitude']) {echo $shopinfo['location']['longitude'].','.$shopinfo['location']['latitude'];}?>"></td></tr>
-        <tr><td>平均价格</td><td><input name="price" type="text" value="<?php echo $shopinfo['price']?>"></td></tr>
-        <tr><td>餐厅类型</td><td><select name="type">
+        <tr><td>餐厅名称</td><td><input class="form-control" name="name" type="text" value="<?php echo $shopinfo['name']?>"></td></tr>
+        <tr><td>星级</td><td><input class="form-control" name="star" type="text" value="<?php echo $shopinfo['star']?>"></td></tr>
+        <tr><td>地址</td><td><input class="form-control" name="address" type="text" value="<?php echo $shopinfo['address']?>"></td></tr>
+        <tr><td>电话</td><td><input  class="form-control" name="phone" type="text" value="<?php echo $shopinfo['phone']?>"></td></tr>
+        <tr><td>坐标</td><td><input  class="form-control"  name="geo" id="geo" type="text" value="<?php if ($shopinfo['location']['longitude']) {echo $shopinfo['location']['longitude'].','.$shopinfo['location']['latitude'];}?>"></td></tr>
+        <tr><td>平均价格</td><td><input  class="form-control"  name="price" type="text" value="<?php echo $shopinfo['price']?>"></td></tr>
+        <tr><td>餐厅类型</td><td><select name="type"   class="form-control" >
             <option value="zhongcan" <?php if ($shopinfo['type'] == 'zhongcan') {echo 'selected';}?>>中餐</option>
             <option value="xican" <?php if ($shopinfo['type'] == 'xican') {echo 'selected';}?>>西餐</option>
             <option value="hancan" <?php if ($shopinfo['type'] == 'hancan') {echo 'selected';}?>>韩餐</option>
             <option value="riliao" <?php if ($shopinfo['type'] == 'riliao') {echo 'selected';}?>>日料</option>
         </select></td></tr>
-        <tr><td>餐厅介绍</td><td><textarea name="description" rows="3" cols="30"><?php echo $shopinfo['description']?></textarea></td></tr>
-        <tr><td>置顶</td><td><input type="checkbox" name="top" value="1" <?php if ($shopinfo['top'] == '1') {echo 'checked';}?>></td></tr>
-        <tr><td>图片</td><td><input name="image" type="file"><?php if ($shopinfo['image']) {?><img src="<?php echo $shopinfo['image']?>"><?php }?></td></tr>
-        <tr><td colspan="2"><input type="submit" value="add"></td></tr>
+        <tr><td>餐厅介绍</td><td><textarea   class="form-control"  name="description" rows="3" cols="30"><?php echo $shopinfo['description']?></textarea></td></tr>
+        <tr><td>置顶</td><td><input   class="form-control"  type="checkbox" name="top" value="1" <?php if ($shopinfo['top'] == '1') {echo 'checked';}?>></td></tr>
+        <tr><td>图片</td><td><input  class="form-control"   name="image" type="file"><?php if ($shopinfo['image']) {?><img src="<?php echo $shopinfo['image']?>"><?php }?></td></tr>
+        <tr><td colspan="2"><input   class="btn btn-primary"  type="submit" value="add"></td></tr>
     </table>
 
 </form>

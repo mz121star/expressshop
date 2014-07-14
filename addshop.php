@@ -112,12 +112,12 @@ while ($shops->hasNext()) {
 
         </div>
         <div class="tab-pane" id="list">
-            <table class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered table-condensed">
                 <thead>
                 <th>餐厅名称</th>
                 <th>星级</th>
                 <th>地址</th>
-                <th>平均价格</th>
+                <th>价格</th>
                 <th>图片</th>
                 <th>操作</th>
                 </thead>
@@ -126,9 +126,9 @@ while ($shops->hasNext()) {
                 foreach ($shop_array as $value) { ?>
                     <tr>
                         <td><?php echo $value['name']?></td>
-                        <td><?php echo $value['star']?></td>
+                        <td><span class="star star-<?php echo $shop['star']*10;?>"></span></td>
                         <td><?php echo $value['address']?></td>
-                        <td><?php echo $value['price']?></td>
+                        <td><?php echo $value['price']?>￥</td>
                         <td><img src="<?php echo $value['image']?>" width="100" /></td>
                         <td><a href="/addshop.php?shopid=<?php echo $value['_id']?>">修改</a></td>
                     </tr>

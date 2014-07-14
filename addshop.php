@@ -103,7 +103,7 @@ while ($shops->hasNext()) {
                </div>
                 <div class="col-md-5" >
                     <div id="r-result">
-                        请输入:<br /><input type="text" id="suggestId" size="20" value="" style="width:150px;" />
+                       <br />查询地址:<input type="text" id="suggestId" size="20" value="" style="width:150px;" />
                     </div>
                     <div id="allmap"></div></div>
             </div>
@@ -129,7 +129,7 @@ while ($shops->hasNext()) {
                         <td><?php echo $value['star']?></td>
                         <td><?php echo $value['address']?></td>
                         <td><?php echo $value['price']?></td>
-                        <td><?php echo $value['image']?></td>
+                        <td><img src="<?php echo $value['image']?>" width="100" /></td>
                         <td><a href="/addshop.php?shopid=<?php echo $value['_id']?>">修改</a></td>
                     </tr>
                 <?php }

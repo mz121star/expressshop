@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if(!$_SESSION["uname"]){
+    header("Location: login.php");
+    exit;
+}
 include_once('init.php');
 if (count($_POST)) {
     if ($_FILES['image']['name']) {
@@ -65,6 +69,9 @@ while ($shops->hasNext()) {
     <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="public/css/style-min.css?v1.2.32">
     <title>获取商家坐标</title>
+    <style>
+        input{border-bottom: 1px solid #c0c0c0}
+    </style>
 </head>
 <body>
 <div class="container">

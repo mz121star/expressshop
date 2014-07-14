@@ -104,7 +104,7 @@ while ($shops->hasNext()) {
                </div>
                 <div class="col-md-5" >
                     <div id="r-result">
-                       <br />查询地址:<input type="text" id="suggestId" size="20" value="" style="width:150px;" />
+                       <br />查询地址:<input class="form-control" type="text" id="suggestId" size="20" value="" style="width:150px;" />
                     </div>
                     <div id="allmap"></div></div>
             </div>

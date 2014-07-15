@@ -50,6 +50,7 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
 <link rel="stylesheet" type="text/css" href="public/css/style-min.css?v1.2.32">
 <link rel="stylesheet" type="text/css" href="public/css/alert.css?v1.6">
 <script src="public/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=lcO3zSdb4cgCduHNBT3AoAR9"></script>
     <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
 
         <?php

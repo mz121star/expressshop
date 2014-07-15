@@ -248,7 +248,7 @@ if($(".juMenu").hasClass('juMenuPay'))
 <!--/div-->
   <div class="foot-menu">
        	  <a href="mystar.php?id=<?php echo $_GET['id'] ?>&longitude=<?php echo $_GET['longitude'] ?>&latitude=<?php echo $_GET['latitude'] ?>" class="myjuo"><i class="sp"></i>我的收藏</a>
-        <a href="javascript:;" class="atte"><i class="sp"></i>关注我们</a>
+        <a href="http://mp.weixin.qq.com/s?__biz=MzA5NzMzMTMwMA==&mid=200930116&idx=1&sn=b4f4075d44a9172aee9ee5056cd99003#rd" class="atte"><i class="sp"></i>关注我们</a>
   </div>
   <div class="tel"><a href="tel:3A4001858666"><i class="fontIcon fa-phone"></i>联系客服:400-185-8666</a></div>
     

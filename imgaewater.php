@@ -79,6 +79,7 @@ function img_water_mark($srcImg, $waterImg, $savepath=null, $savename=null, $pos
         default: $x=$y=0;
     }
   //  imagecopymerge($srcImgObj, $waterImgObj, $x, $y, 0, 0, $waterinfo[0], $waterinfo[1], $alpha);
+    $srcImgObj= resizeImage($srcImgObj,800,800,'new_111','jpg');
     imagecopy($srcImgObj, $waterImgObj, $x, $y, 0, 0, $waterinfo[0], $waterinfo[1]);
     switch ($srcinfo[2]) {
         case 1: imagegif($srcImgObj, $savefile); break;
@@ -90,6 +91,66 @@ function img_water_mark($srcImg, $waterImg, $savepath=null, $savename=null, $pos
     imagedestroy($waterImgObj);
     return $savefile;
 }
+
+function resizeImage($im,$maxwidth,$maxheight,$name,$filetype)
+{
+    $pic_width = imagesx($im);
+    $pic_height = imagesy($im);
+
+    if(($maxwidth && $pic_width > $maxwidth) || ($maxheight && $pic_height > $maxheight))
+    {
+        if($maxwidth && $pic_width>$maxwidth)
+        {
+            $widthratio = $maxwidth/$pic_width;
+            $resizewidth_tag = true;
+        }
+
+        if($maxheight && $pic_height>$maxheight)
+        {
+            $heightratio = $maxheight/$pic_height;
+            $resizeheight_tag = true;
+        }
+
+        if($resizewidth_tag && $resizeheight_tag)
+        {
+            if($widthratio<$heightratio)
+                $ratio = $widthratio;
+            else
+                $ratio = $heightratio;
+        }
+
+        if($resizewidth_tag && !$resizeheight_tag)
+            $ratio = $widthratio;
+        if($resizeheight_tag && !$resizewidth_tag)
+            $ratio = $heightratio;
+
+        $newwidth = $pic_width * $ratio;
+        $newheight = $pic_height * $ratio;
+
+        if(function_exists("imagecopyresampled"))
+        {
+            $newim = imagecreatetruecolor($newwidth,$newheight);
+            imagecopyresampled($newim,$im,0,0,0,0,$newwidth,$newheight,$pic_width,$pic_height);
+        }
+        else
+        {
+            $newim = imagecreate($newwidth,$newheight);
+            imagecopyresized($newim,$im,0,0,0,0,$newwidth,$newheight,$pic_width,$pic_height);
+        }
+
+        $name = $name.$filetype;
+        return $newim;
+        imagejpeg($newim,$name);
+        imagedestroy($newim);
+    }
+    else
+    {
+        $name = $name.$filetype;
+        return $im;
+        imagejpeg($im,$name);
+    }
+}
+
 
 function image_create_from_ext($imgfile)
 {

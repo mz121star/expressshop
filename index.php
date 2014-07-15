@@ -50,7 +50,7 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
 <link rel="stylesheet" type="text/css" href="public/css/style-min.css?v1.2.32">
 <link rel="stylesheet" type="text/css" href="public/css/alert.css?v1.6">
 <script src="public/js/jquery-1.7.1.min.js"></script>
-
+    <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
 
         <?php
   if (!isset($_GET['longitude']) && !isset($_GET['latitude'])) { ?>
@@ -85,7 +85,6 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
 
 //坐标转换完之后的回调函数
             translateCallback = function (point){
-
                 window.location.href="index.php?longitude="+point.lng+"&latitude="+point.lat+"&id=<?php if (isset($_GET['id'])) {echo $_GET['id'];} ?>";
             }
 

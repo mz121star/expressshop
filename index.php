@@ -74,7 +74,27 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
             // 获取到当前位置经纬度  本例中是chrome浏览器取到的是google地图中的经纬度
             var lng = position.coords.longitude;
             var lat = position.coords.latitude;
-            window.location.href="index.php?longitude="+lng+"&latitude="+lat+"&id=<?php if (isset($_GET['id'])) {echo $_GET['id'];} ?>";
+
+            // 百度地图API功能
+//谷歌坐标
+            var x = lng;
+            var y = 38.859372;
+            var ggPoint = new BMap.Point(x,y);
+
+
+
+//坐标转换完之后的回调函数
+            translateCallback = function (point){
+
+                window.location.href="index.php?longitude="+point.lng+"&latitude="+point.lat+"&id=<?php if (isset($_GET['id'])) {echo $_GET['id'];} ?>";
+            }
+
+            setTimeout(function(){
+                BMap.Convertor.translate(ggPoint,2,translateCallback);     //GCJ-02坐标转成百度坐标
+            }, 2000);
+
+
+
         }
 
         function handleError(error){

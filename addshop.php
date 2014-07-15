@@ -42,6 +42,13 @@ if (count($_POST)) {
     }
 }
 
+if (isset($_GET['type']) && $_GET['type'] == 'del') {
+    if (isset($_GET['shopid'])) {
+        $collection->remove (array('_id' => new MongoId($_GET['shopid'])), array( "justOne"  =>  true ));
+        header('Location: /addshop.php');
+    }
+}
+
 $shopinfo = array('name'=>'', 'star'=>'', 'address'=>'', 'phone'=>'',  'location'=>array('longitude'=>'','latitude'=>''), 'price'=>'', 'type'=>'', 'description'=>'', 'top'=>'', 'image'=>'', 'imgname'=>''); 
 if (isset($_GET['shopid'])) {
     $shopinfo = $collection->findOne(array('_id' => new MongoId($_GET['shopid'])));
@@ -84,7 +91,7 @@ while ($shops->hasNext()) {
     <div class="tab-content">
         <div class="tab-pane active" id="home">
             <div class="row">
-               <div class="col-md-5" >
+               <div class="col-md-6" >
                    <form method="post" action="addshop.php" enctype="multipart/form-data">
                        <?php if (isset($shopinfo['_id'])) {?><input type="hidden" name="shopid" value="<?php echo $shopinfo['_id']?>"><input type="hidden" name="oldimage" value="<?php echo $shopinfo['image']?>"><?php }?>
                        <table>
@@ -100,16 +107,16 @@ while ($shops->hasNext()) {
                                        <option value="hancan" <?php if ($shopinfo['type'] == 'hancan') {echo 'selected';}?>>韩餐</option>
                                        <option value="riliao" <?php if ($shopinfo['type'] == 'riliao') {echo 'selected';}?>>日料</option>
                                    </select></td></tr>
-                           <tr><td>餐厅介绍</td><td><textarea   class="form-control"  name="description" rows="3" cols="30"><?php echo $shopinfo['description']?></textarea></td></tr>
                            <tr><td>置顶</td><td><input   class="form-control"  type="checkbox" name="top" value="1" <?php if ($shopinfo['top'] == '1') {echo 'checked';}?>></td></tr>
-                           <tr><td>图片</td><td><input  class="form-control"   name="image" type="file"><?php if ($shopinfo['image']) {?><img src="<?php echo $shopinfo['image']?>"><?php }?></td></tr>
+                           <tr><td>图片</td><td><input  class="form-control"   name="image" type="file"><?php if (isset($shopinfo['image']) && $shopinfo['image']) {?><img src="<?php echo $shopinfo['image']?>"><?php }?></td></tr>
+                           <tr><td>餐厅介绍</td><td><script  name="description"  id="description"><?php echo $shopinfo['description']?></script></td></tr>
                            <tr><td colspan="2"><input   class="btn btn-primary"  type="submit" value="add"></td></tr>
                        </table>
 
                    </form>
                    <br>
                </div>
-                <div class="col-md-5" >
+                <div class="col-md-6" >
                     <div id="r-result">
                        <br />查询地址:<input class="form-control" type="text" id="suggestId" size="20" value="" style="width:150px;" />
                     </div>
@@ -138,7 +145,7 @@ while ($shops->hasNext()) {
                         <td><?php echo $value['address']?></td>
                         <td><?php echo $value['price']?>￥</td>
                         <td><img src="<?php echo $value['image']?>" width="100" /></td>
-                        <td><a href="/addshop.php?shopid=<?php echo $value['_id']?>">修改</a></td>
+                        <td><a href="/addshop.php?shopid=<?php echo $value['_id']?>">修改</a>&nbsp;&nbsp;<a id="delete_<?php echo $value['_id']?>" href="javascript:;">删除</a></td>
                     </tr>
                 <?php }
                 ?>
@@ -153,8 +160,27 @@ while ($shops->hasNext()) {
 </div>
 </body>
 </html>
+<script type="text/javascript " src="ueditor/ueditor.config.js "></script>
+	<script type="text/javascript " src="ueditor/ueditor.all.js "></script>
 <script type="text/javascript">
+$(function (){
+    $("a[id^='delete_']").click(function () {
+        var shopid = this.id.substr(7);
+        if (confirm("你确认要删除吗？")) {
+            location.href = "/addshop.php?shopid="+shopid+"&type=del";
+        }
+    });
+});
 
+var editor = UE.getEditor('description', {
+    toolbars: [
+        ['fullscreen', 'source', 'undo', 'redo', 'bold','simpleupload', 'insertimage']
+    ],
+    autoHeightEnabled: true,
+    autoFloatEnabled: true,
+    initialFrameHeight:300,
+    initialFrameWidth:400
+});
 
     // 百度地图API功能
     var map = new BMap.Map("allmap");            // 创建Map实例

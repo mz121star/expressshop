@@ -38,8 +38,8 @@ if (count($_POST)) {
 
     <form class="form-signin" role="form"  method="post" action="login.php" >
         <h2 class="form-signin-heading">登录后台管理</h2>
-        <input type="text" name="uname" class="form-control" placeholder="Email address" required autofocus>
-        <input type="password" name="pwd" class="form-control" placeholder="Password" required>
+        <input type="text" name="uname" class="form-control" placeholder="用户名" required autofocus>
+        <input type="password" name="pwd" class="form-control" placeholder="密码" required>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
     </form>

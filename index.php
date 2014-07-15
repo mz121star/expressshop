@@ -78,7 +78,7 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
             // 百度地图API功能
 //谷歌坐标
             var x = lng;
-            var y = 38.859372;
+            var y = lat;
             var ggPoint = new BMap.Point(x,y);
 
 

@@ -18,6 +18,7 @@ $srcImage =$filepath.$imagename;
 $waterImage= $_SERVER['DOCUMENT_ROOT']."/img/water".rand(1,4).".png";
 //文字字体大小
 
+ resizeImage(image_create_from_ext($srcImage),800,800,$srcImage,'.jpg');
 $resultImage=img_water_mark($srcImage,$waterImage);
 
 echo  $imagename;
@@ -79,7 +80,7 @@ function img_water_mark($srcImg, $waterImg, $savepath=null, $savename=null, $pos
         default: $x=$y=0;
     }
   //  imagecopymerge($srcImgObj, $waterImgObj, $x, $y, 0, 0, $waterinfo[0], $waterinfo[1], $alpha);
-    $srcImgObj= resizeImage($srcImgObj,800,800,'new_111','jpg');
+
     imagecopy($srcImgObj, $waterImgObj, $x, $y, 0, 0, $waterinfo[0], $waterinfo[1]);
     switch ($srcinfo[2]) {
         case 1: imagegif($srcImgObj, $savefile); break;
@@ -139,14 +140,14 @@ function resizeImage($im,$maxwidth,$maxheight,$name,$filetype)
         }
 
         $name = $name.$filetype;
-        return $newim;
+
         imagejpeg($newim,$name);
         imagedestroy($newim);
     }
     else
     {
         $name = $name.$filetype;
-        return $im;
+
         imagejpeg($im,$name);
     }
 }

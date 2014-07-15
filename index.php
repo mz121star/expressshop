@@ -91,7 +91,7 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
 
             setTimeout(function(){
                 BMap.Convertor.translate(ggPoint,2,translateCallback);     //GCJ-02坐标转成百度坐标
-            }, 2000);
+            },10);
 
 
 

@@ -97,7 +97,7 @@ function resizeImage($im,$maxwidth,$maxheight,$name,$filetype)
 {
     $pic_width = imagesx($im);
     $pic_height = imagesy($im);
-
+     $resizeheight_tag=false;
     if(($maxwidth && $pic_width > $maxwidth) || ($maxheight && $pic_height > $maxheight))
     {
         if($maxwidth && $pic_width>$maxwidth)

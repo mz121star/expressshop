@@ -8,7 +8,7 @@ $shop_array = array();
 if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
     setcookie("longitude",$_GET['longitude']);
     setcookie("latitude",$_GET['latitude']);
-    if($_GET["isbaidu"]==1){
+    if($_GET["isbaidu"]){
         $longitude = $_GET['longitude'];
         $latitude = $_GET['latitude'];
     }else{

@@ -61,51 +61,35 @@ if (isset($_GET['longitude']) && isset($_GET['latitude'])) {
         <?php
   if (!isset($_GET['longitude']) && !isset($_GET['latitude'])) { ?>
 
-
-
-        <script type="text/javascript">
-
-
-
-        if (window.navigator.geolocation) {
-            var options = {
-                enableHighAccuracy: true
-            };
-            window.navigator.geolocation.getCurrentPosition(handleSuccess, handleError, options);
-        } else {
-            alert("浏览器不支持html5来获取地理位置信息");
-        }
-
-        function handleSuccess(position){
-            // 获取到当前位置经纬度  本例中是chrome浏览器取到的是google地图中的经纬度
-            var lng = position.coords.longitude;
-            var lat = position.coords.latitude;
-
-            // 百度地图API功能
-//谷歌坐标
-            var x = lng;
-            var y = lat;
-            var ggPoint = new BMap.Point(x,y);
+      <script type="text/javascript">
 
 
 
-//坐标转换完之后的回调函数
-            translateCallback = function (point){
-                window.location.href="index.php?isbaidu=1&longitude="+point.lng+"&latitude="+point.lat+"&id=<?php if (isset($_GET['id'])) {echo $_GET['id'];} ?>";
-            }
-
-            setTimeout(function(){
-                BMap.Convertor.translate(ggPoint,2,translateCallback);     //GCJ-02坐标转成百度坐标
-            },10);
+          var geolocation = new BMap.Geolocation();
+          geolocation.getCurrentPosition(function(r){
+              if(this.getStatus() == BMAP_STATUS_SUCCESS){
 
 
+                  window.location.href="index.php?isbaidu=1&longitude="+ r.point.lng+"&latitude="+ r.point.lat+"&id=<?php if (isset($_GET['id'])) {echo $_GET['id'];} ?>";
+              }
+              else {
+                  alert('failed'+this.getStatus());
+              }
+          },{enableHighAccuracy: true})
+          //关于状态码
+          //BMAP_STATUS_SUCCESS	检索成功。对应数值“0”。
+          //BMAP_STATUS_CITY_LIST	城市列表。对应数值“1”。
+          //BMAP_STATUS_UNKNOWN_LOCATION	位置结果未知。对应数值“2”。
+          //BMAP_STATUS_UNKNOWN_ROUTE	导航结果未知。对应数值“3”。
+          //BMAP_STATUS_INVALID_KEY	非法密钥。对应数值“4”。
+          //BMAP_STATUS_INVALID_REQUEST	非法请求。对应数值“5”。
+          //BMAP_STATUS_PERMISSION_DENIED	没有权限。对应数值“6”。(自 1.1 新增)
+          //BMAP_STATUS_SERVICE_UNAVAILABLE	服务不可用。对应数值“7”。(自 1.1 新增)
+          //BMAP_STATUS_TIMEOUT	超时。对应数值“8”。(自 1.1 新增)
+      </script>
 
-        }
 
-        function handleError(error){
 
-        }
-    </script>
     <?php
 exit;
       }

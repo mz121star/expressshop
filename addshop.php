@@ -43,8 +43,10 @@ if (count($_POST)) {
 }
 
 if (isset($_GET['type']) && $_GET['type'] == 'del') {
+    $collection2 = $db->selectCollection('e_favorite');
     if (isset($_GET['shopid'])) {
         $collection->remove (array('_id' => new MongoId($_GET['shopid'])), array( "justOne"  =>  true ));
+        $collection2->remove (array('shopid' => new MongoId($_GET['shopid'])));
         header('Location: /addshop.php');
     }
 }

@@ -132,7 +132,7 @@ private function checkSignature()
                         $result = $this->transmitNews($object, $content);
                         break;
                     default:
-                        $content = "点击菜单：".$object->EventKey;
+                        $content = "感谢您的留言~：".$object->EventKey;
                         break;
                 }
                 break;
@@ -182,7 +182,7 @@ private function checkSignature()
                 $content = array("Title"=>"最炫民族风", "Description"=>"歌手：凤凰传奇", "MusicUrl"=>"http://121.199.4.61/music/zxmzf.mp3", "HQMusicUrl"=>"http://121.199.4.61/music/zxmzf.mp3");
             }
             else{
-                $content =  "<a href='http://dlwebs99.jd-app.com/good.php'>点击</a>";
+                $content =  "这里是大连小城故事微信平台！欢迎您留言~";
             }
             
             if(is_array($content)){

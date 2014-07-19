@@ -96,7 +96,7 @@ while ($my_shop->hasNext()) {
 
 
                 <dd>
-                    <span class="ico_tag">团购</span>
+                    <span class="ico_tag">推荐</span>
 
 
                 </dd>

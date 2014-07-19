@@ -222,7 +222,7 @@ if($(".juMenu").hasClass('juMenuPay'))
 
          
             <dd>	
-                        	<span class="ico_tag">团购</span>
+                        	<!--<span class="ico_tag">团购</span>-->
                 	
     	
            </dd>
